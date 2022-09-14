@@ -1,3 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #----CALCULATE TOTAL SALES PER YEAR ?
 SELECT PRODUCTLINE, SUM (QUANTITYORDERED) AS TOTAL_ORDER FROM sales_order_data group by PRODUCTLINE Order by TOTAL_ORDER DESC
 
