@@ -59,10 +59,11 @@ from sales_order_data_csv insert overwrite table sales_order_data_orc select *;
 
 
 #----CALCULATE TOTAL SALES PER YEAR ?
-SELECT PRODUCTLINE, SUM (QUANTITYORDERED) AS TOTAL_ORDER FROM sales_order_data_orc group by PRODUCTLINE Order by TOTAL_ORDER DESC;
+SELECT YEAR_ID , SUM (SALES) AS TOTAL_SALES FROM sales_order_data_orc group by YEAR_ID Order by YEAR_ID;
 
 #----------FIND A PRODUCT FOR WHICH MAXIMUM ORDERS WERE PLACED ?
-SELECT YEAR_ID , SUM (SALES) AS TOTAL_SALES FROM sales_order_data_orc group by YEAR_ID Order by YEAR_ID;
+SELECT PRODUCTLINE, SUM (QUANTITYORDERED) AS TOTAL_ORDER FROM sales_order_data_orc group by PRODUCTLINE Order by TOTAL_ORDER DESC;
+
 
 #-----------CALCULATE THE TOTAL SALES FOR EACH QUARTER ?
 
