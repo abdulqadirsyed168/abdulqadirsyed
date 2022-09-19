@@ -13,6 +13,9 @@ create table sales_data_v2_bkup as select * from sales_data_v2;
 # set this property if doing static partition
 set hive.mapred.mode=strict;
 
+# set this property for dynamic partioning
+set hive.exec.dynamic.partition.mode=nonstrict;
+
 # load data in static partition
 insert overwrite table sales_data_static_part partition(country = 'USA') select ordernumber,quantityordered,sales,year_id from sales_ord
 er_data_orc where country = 'USA';
@@ -21,8 +24,7 @@ er_data_orc where country = 'USA';
 insert overwrite table sales_data_dynamic_part partition(country) select ordernumber,quantityordered,sales,year_id,country from sales_or
 der_data_orc;
 
-# set this property for dynamic partioning
-set hive.exec.dynamic.partition.mode=nonstrict;
+
 
 
 
