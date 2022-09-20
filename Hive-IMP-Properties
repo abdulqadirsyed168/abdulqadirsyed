@@ -10,6 +10,9 @@ set hive.cli.print.header = true;
 # command to create identical table
 create table sales_data_v2_bkup as select * from sales_data_v2;
 
+# load data in parquet file for serlizied and deserlizied for serde
+from sales_data_v2 insert overwrite table sales_data_pq_final select *;
+
 # set this property if doing static partition
 set hive.mapred.mode=strict;
 
@@ -24,6 +27,8 @@ er_data_orc where country = 'USA';
 insert overwrite table sales_data_dynamic_part partition(country) select ordernumber,quantityordered,sales,year_id,country from sales_or
 der_data_orc;
 
+# set this property for bucketing
+set hive.enforce.bucketing=true;
 
 
 
