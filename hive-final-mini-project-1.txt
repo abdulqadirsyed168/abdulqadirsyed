@@ -1,0 +1,32 @@
+ create table AgentLogingReport
+    > (
+    > SL_No float,
+    > Agent varchar(255),
+    > Date date,
+    > Login_Time timestamp,
+    > Logout_Time timestamp,
+    > Duration timestamp
+    > )
+    > row format serde 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+    > tblproperties ("skip.header.line.count" = "1");
+    
+    > load data inpath '/tmp/hadoop_dir/AgentLogingReport.csv' into table AgentLogingReport;
+    
+    
+    > create table AgentPerformance
+    > (
+    > SL_No float,
+    > Date date,
+    > Agent_Name varchar(255),
+    > Total_Chats float,
+    > Average_Response_Time timestamp,
+    > Average_Resolution_Time timestamp,
+    > Average_Rating float,
+    > Total_Feedback float
+    > )
+    > row format serde 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+    > tblproperties ("skip.header.line.count" = "1");
+    
+    load data inpath '/tmp/hadoop_dir/AgentPerformance.csv' into table AgentPerformance;
+    
+    
