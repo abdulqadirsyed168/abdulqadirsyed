@@ -29,4 +29,18 @@
     
     load data inpath '/tmp/hadoop_dir/AgentPerformance.csv' into table AgentPerformance;
     
+    #  List of all agents' names.
+    SELECT agent FROM agentlogingreport
+    > UNION
+    > SELECT agent_name FROM agentperformance;
+    
+    
+    # Find out agent average rating.
+    > SELECT AVG(AVERAGE_RATING) AS Average_Rating,AGENT_NAME
+    > FROM Agentperformance
+    > GROUP BY AGENT_NAME
+    > ORDER BY Average_Rating DESC;
+    
+    # Total working days for each agents
+    
     
