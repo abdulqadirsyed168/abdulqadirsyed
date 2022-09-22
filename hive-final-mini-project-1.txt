@@ -102,6 +102,26 @@
     > ORDER BY TOTAL_FEEDBACK DESC;
     
     #Total contribution hour for each and every agents weekly basis
+    > SELECT Agent,Duration,Date FROM Agentlogingreport
+    > WHERE Date BETWEEN '7/1/2022' AND '7/7/2022'
+    > ORDER BY Date;
+    
+    > SELECT Agent,Duration,Date FROM Agentlogingreport
+    > WHERE Date BETWEEN '7/8/2022' AND '7/14/2022'
+    > ORDER BY Date;
+    
+    > SELECT Agent,Duration,Date FROM Agentlogingreport
+    > WHERE Date BETWEEN '7/15/2022' AND '7/21/2022'
+    > ORDER BY Date;
+    
+    > SELECT Agent,Duration,Date FROM Agentlogingreport
+    > WHERE Date BETWEEN '7/22/2022' AND '7/28/2022'
+    > ORDER BY Date;
+    
+    > SELECT Agent,Duration,Date FROM Agentlogingreport
+    > WHERE Date BETWEEN '7/29/2022' AND '7/30/2022'
+    > ORDER BY Date;
+    
     
     
 
