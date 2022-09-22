@@ -60,6 +60,27 @@
     > ORDER BY TOTAL_FEEDBACK DESC;
     
     # Agent name who have average rating between 3.5 to 4
+    > SELECT AVERAGE_RATING,AGENT_NAME FROM Agentperformance
+    > WHERE AVERAGE_RATING BETWEEN 3.5 AND 4
+    > ORDER BY AVERAGE_RATING;
+    
+    # Agent name who have rating less than 3.5
+    > SELECT AVERAGE_RATING,AGENT_NAME FROM Agentperformance
+    > WHERE AVERAGE_RATING < 3.5
+    > ORDER BY AVERAGE_RATING DESC;
+    
+    # Agent name who have rating more than 4.5
+    > SELECT AVERAGE_RATING,AGENT_NAME FROM Agentperformance
+    > WHERE AVERAGE_RATING > 4.5
+    > ORDER BY AVERAGE_RATING;
+    
+    # How many feedback agents have received more than 4.5 average
+    SELECT TOTAL_FEEDBACK,AGENT_NAME  FROM Agentperformance
+    > WHERE TOTAL_FEEDBACK > 4.5
+    > ORDER BY TOTAL_FEEDBACK;
+    
+    # average weekly response time for each agent
+    
     
     
     
