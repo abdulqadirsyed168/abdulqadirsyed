@@ -42,5 +42,13 @@
     > ORDER BY Average_Rating DESC;
     
     # Total working days for each agents
+    > SELECT COUNT(Login_Time) as Total_Working_days, Agent
+    > FROM Agentlogingreport
+    > GROUP BY Agent
+    > ORDER BY Total_Working_days;
+    
+    # Total query that each agent have taken
+    
+    
     
     
