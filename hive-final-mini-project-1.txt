@@ -48,6 +48,18 @@
     > ORDER BY Total_Working_days;
     
     # Total query that each agent have taken
+    > SELECT SUM(TOTAL_CHATS) AS TOTAL_QUERY, AGENT_NAME
+    > FROM Agentperformance
+    > GROUP BY AGENT_NAME
+    > ORDER BY TOTAL_QUERY DESC;
+    
+    # Total Feedback that each agent have received
+    > SELECT SUM(TOTAL_FEEDBACK) AS TOTAL_FEEDBACK, AGENT_NAME
+    > FROM Agentperformance
+    > GROUP BY AGENT_NAME
+    > ORDER BY TOTAL_FEEDBACK DESC;
+    
+    # Agent name who have average rating between 3.5 to 4
     
     
     
