@@ -97,6 +97,12 @@
     > SELECT * FROM Agentperformance
     > WHERE DATE BETWEEN '7/29/2022' AND '7/30/2022';
     
+    # Find the number of chat on which they have received a feedback
+    > SELECT TOTAL_FEEDBACK,TOTAL_CHATS,AGENT_NAME FROM Agentperformance
+    > ORDER BY TOTAL_FEEDBACK DESC;
+    
+    #Total contribution hour for each and every agents weekly basis
+    
     
 
     
