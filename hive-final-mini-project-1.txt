@@ -220,6 +220,7 @@ set hive.exec.dynamic.partition.mode=nonstrict;
     > hadoop fs -cp /user/hive/warehouse/hive_class_b1.db/tbl_innerjoinagent 'file:///tmp/hadoop_hive_dir'
     
     
+
 > create table left_join_agentlogingreport
     > (
     > sl_no string,
@@ -235,6 +236,24 @@ set hive.exec.dynamic.partition.mode=nonstrict;
 
 hadoop fs -cp /user/hive/warehouse/hive_class_b1.db/left_join_agentlogingreport 'file:///tmp/hadoop_hive_dir'
 
+
+
+> create table tbl_right_join_agentperformance
+    > (
+    >  sl_no string,
+    >  date string,
+    >  agent_name string,
+    >  total_chats string,
+    >  average_response_time string,
+    >  average_resolution_time string,
+    >  average_rating string,
+    >  total_feedback string)
+    > row format delimited
+    > fields terminated by ',';
+
+> insert overwrite table tbl_right_join_agentperformance select AP.sl_no,AP.date,AP.agent_name,AP.total_chats,AP.average_response_time string,AP.average_resolution_time string,AP.average_rating string,AP.total_feedback string from agentlogingreport as AL right join agentperformance as AP on AL.agent = AP.agent_name;
+
+hadoop fs -cp /user/hive/warehouse/hive_class_b1.db/tbl_right_join_agentperformance 'file:///tmp/hadoop_hive_dir'
 
     
     
