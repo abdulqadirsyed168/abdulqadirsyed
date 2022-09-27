@@ -91,16 +91,36 @@ from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
 # Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning
 
+set hive.exec.dynamic.partition.mode=nonstrict;
+
 > create table agentlogingreport_dynamic_part
     > (
-    > sl_no float,
-    > date date,
-    > login_time timestamp,
-    > logout_time timestamp,
-    > duration timestamp)
+    > sl_no string,
+    > date string,
+    > login_time string,
+    > logout_time string,
+    > duration string)
     > partitioned by (agent string);
     
  > insert overwrite table agentlogingreport_dynamic_part partition(agent) select sl_no,date,login_time,logout_time,duration,agent from agentlogingreport;
+ 
+ set hive.enforce.bucketing=true;
+ 
+ > create table buck_agentlogingreport_dynamic_part
+    > (
+    > sl_no float,
+    > date date,
+    > agent string,
+    > login_time timestamp,
+    > logout_time timestamp,
+    > duration timestamp)
+    > clustered by (agent)
+    > sorted by (agent)
+    > into 2 buckets;
+    
+ > insert overwrite table buck_agentlogingreport_dynamic_part select * from agentlogingreport_dynamic_part;
+ 
+ 
 
 
 
