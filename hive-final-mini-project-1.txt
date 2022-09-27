@@ -189,10 +189,36 @@ set hive.exec.dynamic.partition.mode=nonstrict;
     >  into 3 buckets;
     
  > insert overwrite table buck_agentperformance_dynamic_part select * from agentperformance_dynamic_part;
+ 
     
+       
     
-    
+# Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
 
+
+    > create table tbl_innerjoinagent
+    > (
+    >  sl_no string,
+    >  date string,
+    >  agent string,
+    >  login_time string,
+    >  logout_time string,
+    >  duration string,
+    >  sl_no2 string,
+    >  date2 string,
+    >  agent_name string,
+    >  total_chats string,
+    >  average_response_time string,
+    >  average_resolution_time string,
+    >  average_rating string,
+    >  total_feedback string)
+    >  row format delimited
+    >  fields terminated by ',';
+    
+    > insert overwrite table tbl_innerjoinagent select * from agentlogingreport AL inner join agentperformance AP on AL.agent = AP.agent_name;
+    
+    > hadoop fs -cp /user/hive/warehouse/hive_class_b1.db/tbl_innerjoinagent 'file:///tmp/hadoop_hive_dir'
+    
     
     
     
