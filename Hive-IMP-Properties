@@ -121,7 +121,40 @@ set hive.exec.dynamic.partition.mode=nonstrict;
  > insert overwrite table buck_agentlogingreport_dynamic_part select * from agentlogingreport_dynamic_part;
  
  
+ 
+ set hive.exec.dynamic.partition.mode=nonstrict;
+ 
+ > create table agentperformance_dynamic_part
+    > (
+    > sl_no string,
+    > date string,
+    > total_chats string,
+    > average_response_time string,
+    > average_resolution_time string,
+    > average_rating string,
+    > total_feedback string)
+    > partitioned by (agent_name string);
+    
+> insert overwrite table agentperformance_dynamic_part partition(agent_name) select sl_no,date,total_chats,average_response_time,average_resolution_time,average_rating string,total_feedback string,agent_name from agentperformance;
+ 
 
+ set hive.enforce.bucketing=true;
+ 
+ > create table buck_agentperformance_dynamic_part
+    > (
+    >  sl_no string,
+    >  date string,
+    >  agent_name string,
+    >  total_chats string,
+    >  average_response_time string,
+    >  average_resolution_time string,
+    >  average_rating string,
+    >  total_feedback string)
+    >  clustered by(agent_name)
+    >  sorted by (agent_name)
+    >  into 3 buckets;
+    
+ > insert overwrite table buck_agentperformance_dynamic_part select * from agentperformance_dynamic_part;
 
 
 
