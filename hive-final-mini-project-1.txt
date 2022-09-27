@@ -220,6 +220,24 @@ set hive.exec.dynamic.partition.mode=nonstrict;
     > hadoop fs -cp /user/hive/warehouse/hive_class_b1.db/tbl_innerjoinagent 'file:///tmp/hadoop_hive_dir'
     
     
+> create table left_join_agentlogingreport
+    > (
+    > sl_no string,
+    >  date string,
+    >  agent string,
+    >  login_time string,
+    >  logout_time string,
+    >  duration string)
+    > row format delimited
+    > fields terminated by ','; 
+
+> insert overwrite table left_join_agentlogingreport select AL.sl_no,AL.date,AL.agent,AL.login_time,AL.logout_time,AL.duration from agentlogingreport as AL left join agentperformance as AP on AL.agent = AP.agent_name;
+
+hadoop fs -cp /user/hive/warehouse/hive_class_b1.db/left_join_agentlogingreport 'file:///tmp/hadoop_hive_dir'
+
+
+    
+    
     
     
     
