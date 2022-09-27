@@ -89,3 +89,21 @@ create table sales_data_pq_final
 # load data in parquet file
 from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
+# Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning
+
+> create table agentlogingreport_dynamic_part
+    > (
+    > sl_no float,
+    > date date,
+    > login_time timestamp,
+    > logout_time timestamp,
+    > duration timestamp)
+    > partitioned by (agent string);
+    
+ > insert overwrite table agentlogingreport_dynamic_part partition(agent) select sl_no,date,login_time,logout_time,duration,agent from agentlogingreport;
+
+
+
+
+
+
