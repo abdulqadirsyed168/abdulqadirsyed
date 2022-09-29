@@ -1,2 +1,53 @@
 Download Dataset - https://data.cityofnewyork.us/browse?q=parking+tickets
 
+> create table Parking_Violations_Issued_FiscalYear2017
+    > (
+    >  summons_number bigint,
+    >  plate_id varchar(50),
+    >  registration_state varchar(50),
+    >  plate_type varchar(50),
+    >  issue_date date,
+    >  violation_code int,
+    >  vehicle_body_type varchar(50),
+    >  vehicle_make varchar(50),
+    >  issuing_agency varchar(50),
+    >  street_code1 int,
+    >  street_code2 int,
+    >  street_code3 int,
+    >  vehicle_expiration_date int,
+    >  violation_location int,
+    >  violation_precinct int,
+    >  issuer_precinct int,
+    >  issuer_code int,
+    >  issuer_command varchar(50),
+    >  issuer_squad varchar(50),
+    >  violation_time timestamp,
+    >  time_first_observed timestamp,
+    >  violation_country varchar(50),
+    >  violation_in_front_of_or_opposite varchar(50),
+    >  house_number varchar(50),
+    >  street_name varchar(50),
+    >  intersecting_street varchar(50),
+    >  date_first_observed int,
+    >  law_section int,
+    >  sub_division varchar(50),
+    >  violation_legal_code varchar(50),
+    >  days_parking_in_effect varchar(50),
+    >  from_hours_in_effect timestamp,
+    >  to_hours_in_effect timestamp,
+    >  vehicle_color varchar(50),
+    >  unregistered_vehicle int,
+    >  vehicle_year int,
+    >  meter_number varchar(50),
+    >  feet_from_curb int,
+    >  violation_post_code varchar(50),
+    >  violation_description varchar(50),
+    >  no_standing_or_stopping_violation varchar(1),
+    >  hydrant_violation varchar(1),
+    >  double_parking_violation varchar(1)
+    > )
+    > row format serde'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+    > tblproperties ("skip.header.line.count" = "1");
+    
+    
+    
