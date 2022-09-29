@@ -49,5 +49,6 @@ Download Dataset - https://data.cityofnewyork.us/browse?q=parking+tickets
     > row format serde'org.apache.hadoop.hive.serde2.OpenCSVSerde'
     > tblproperties ("skip.header.line.count" = "1");
     
+    > load data local inpath 'file:///tmp/hadoop_hive_dir/Parking_Violations_Issued_FiscalYear2017.csv' into table Parking_Violations_Issued_FiscalYear2017;
     
     
