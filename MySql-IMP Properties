@@ -13,10 +13,12 @@ IN BUILT FUNCTION IN MYSQL FOR DATE,DAY,YEAR,TIME
 select now()
 select curdate()
 select curtime()
-select date_sub(now(), interval 1 week)
+select date_sub(now(), interval 1 week) - date_add
 select date_sub(now(), interval 3 day)
 select date_sub(now(), interval 30 day)
 select date_sub(now(), interval 30 year)
+select date(now())
+select time(now())
 select year(now())
 select dayname(now())
 select dayname('1992-11-16 18:46:41')
