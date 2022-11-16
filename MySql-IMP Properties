@@ -1,0 +1,8 @@
+select str_to_date(order_date, '%m/%d/%Y') from sales1
+
+SET SQL_SAFE_UPDATES = 0;
+
+ALTER TABLE sales1 ADD COLUMN order_date_new date-----------------------IT WILL ADD COLUMN AT END OF THE TABLE HERE date would DATA TYPE
+ALTER TABLE sales1 ADD COLUMN order_date_new date after order_date----------------------WE CAN ABLE TO MENTION SPECIFIC COLUMN 
+
+UPDATE sales1 SET order_date_new = str_to_date(order_date, '%m/%d/%Y')
