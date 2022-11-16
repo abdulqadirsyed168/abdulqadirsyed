@@ -22,3 +22,13 @@ select time(now())
 select year(now())
 select dayname(now())
 select dayname('1992-11-16 18:46:41')
+
+#################   ALTER TABLE  ########################
+ALTER TABLE TABLE_NAME ADD COLUMN DATA TYPE
+ALTER TABLE TABLE_NAME ADD COLUMN DATA TYPE MENTION FOR SPECIFIC COLUMN
+ALTER TABLE TABLE_NAME MODIFY COLUMN COLUMN_NAME DATA_TYPE--------------------NEED TO MAKE CHANGE OF DATATYPE WHILE AFTER CREATING TABLE 
+
+
+################   UPDATE TABLE #########################
+UPDATE TABLE_NAME SET COLUMN_NAME = SOME VALUES
+
