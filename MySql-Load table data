@@ -1,0 +1,9 @@
+SET SESSION sql_mode = ''
+
+LOAD DATA INFILE 
+'C:/sales_data_final.csv'
+INTO TABLE sales1
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
