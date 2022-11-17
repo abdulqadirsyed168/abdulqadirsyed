@@ -22,3 +22,7 @@ END &&
 
 CALL bank_rec()
 
+
+"VIEWS WILL OPTIMIZED THE ENTIRE SEARCH OPERATION AND IT WILL CREATE SUBSET TABLE OF ORIGINAL TABLE"
+create view bank_view as select age, job, marital, balance, education from bank_details;
+select * from bank_view
