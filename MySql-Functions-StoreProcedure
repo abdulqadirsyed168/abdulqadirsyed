@@ -1,0 +1,24 @@
+MQSQL FUNCTIONS
+
+DELIMITER $$
+CREATE FUNCTION add_to_col(a INT)
+RETURNS INT
+DETERMINISTIC 
+BEGIN
+DECLARE b int;
+SET b = a + 10;
+RETURN b;
+END $$
+
+SELECT add_to_col()
+
+MYSQL STOREPROCEDURE
+
+DELIMITER &&
+create procedure bank_rec()
+BEGIN
+select * from bank_details;
+END &&
+
+CALL bank_rec()
+
