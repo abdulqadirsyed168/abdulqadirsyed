@@ -1,7 +1,7 @@
 STORE PROCEDURE WE CAN DEFINE IT IN SQL QUERY
 FUNCTIONS WE CAN DEFINE FOR SORT OF MANUPULATION, AND IT CAN GET VALUES 
 
-MQSQL FUNCTIONS
+**************MYSQL FUNCTIONS*****************
 
 DELIMITER $$
 CREATE FUNCTION add_to_col(a INT)
@@ -15,7 +15,7 @@ END $$
 
 SELECT add_to_col()
 
-FUNCTION FOR IF ELSE IN MYSQL
+*************FUNCTION FOR IF ELSE IN MYSQL**************************
 
 DELIMITER &&
 CREATE FUNCTION mark_sales1(sales int)
@@ -35,8 +35,18 @@ END if ;
 RETURN flag_sales;
 END &&
 
+**********FOR LOOP IN MYSQL******************
 
-MYSQL STOREPROCEDURE
+SET @var = 10;
+generate_data : loop
+SET @var = @var + 1;
+if @var = 100 then
+leave generate_data;
+END IF;
+END LOOP generate_data;
+
+
+***********MYSQL STOREPROCEDURE***************
 
 DELIMITER &&
 create procedure bank_rec()
@@ -46,6 +56,7 @@ END &&
 
 CALL bank_rec()
 
+***********************MYSQL_VIEWS********************
 
 "VIEWS WILL OPTIMIZED THE ENTIRE SEARCH OPERATION AND IT WILL CREATE SUBSET TABLE OF ORIGINAL TABLE"
 create view bank_view as select age, job, marital, balance, education from bank_details;
