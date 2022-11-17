@@ -1,3 +1,6 @@
+STORE PROCEDURE WE CAN DEFINE IT IN SQL QUERY
+FUNCTIONS WE CAN DEFINE FOR SORT OF MANUPULATION, AND IT CAN GET VALUES 
+
 MQSQL FUNCTIONS
 
 DELIMITER $$
@@ -11,6 +14,27 @@ RETURN b;
 END $$
 
 SELECT add_to_col()
+
+FUNCTION FOR IF ELSE IN MYSQL
+
+DELIMITER &&
+CREATE FUNCTION mark_sales1(sales int)
+RETURNS varchar(30)
+DETERMINISTIC
+BEGIN
+DECLARE flag_sales varchar(30);
+if sales < 100 then
+SET flag_sales = 'super affordable product';
+elseif sales >= 100 and sales < 300 then
+SET flag_sales = 'affordable product' ;
+elseif sales >300 and sales < 600 then
+SET flag_sales = 'moderate price' ;
+else 
+SET flag_sales = 'expensive' ;
+END if ;
+RETURN flag_sales;
+END &&
+
 
 MYSQL STOREPROCEDURE
 
@@ -26,3 +50,6 @@ CALL bank_rec()
 "VIEWS WILL OPTIMIZED THE ENTIRE SEARCH OPERATION AND IT WILL CREATE SUBSET TABLE OF ORIGINAL TABLE"
 create view bank_view as select age, job, marital, balance, education from bank_details;
 select * from bank_view
+
+
+
