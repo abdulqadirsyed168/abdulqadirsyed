@@ -36,3 +36,5 @@ TO SET MAX ALLOWED DATA IN MYSQL BY DEFAULT ITS 1048576-1MB
 SET GLOBAL max_allowed_packet = 209715200
 
 
+While creating table if we define primary key and foreign key's then we are not able to drop eitheir primary and foreign keys 
+if need to del parent table that would be associated to child table by primary and foreign key then we need to del child table first then....!!!!
