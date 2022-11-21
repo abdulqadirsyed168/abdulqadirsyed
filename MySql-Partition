@@ -31,5 +31,25 @@ course_launch_year int)
 partition by hash (course_launch_year)
 partitions 5;
 
+########################## PARTITION BY KEY ################################
+
+create table ineuron_course3(
+course_name varchar(50),
+course_id int(10) PRIMARY KEY,
+course_title varchar(60),
+course_desc varchar(60),
+launch_date date,
+course_fee int,
+course_mentor varchar(60),
+course_launch_year int)
+partition by key()
+partitions 10;
+
+
 ################## TO KNOW PARTITION DESCRIPTITIONS ##########################
 select partition_name , table_name, table_rows from information_schema.partitions where table_name = 'ineuron_course1'
+
+
+SELECT MD5(any number)
+
+
