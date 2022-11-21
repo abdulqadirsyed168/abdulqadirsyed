@@ -45,3 +45,4 @@ if need to del parent table that would be associated to child table by primary a
 
 ####on delete cascade
     on update cascade#####
+    IF WE ARE COMBINING TWO TABLES AND IF WEE NEED TO UPDATE ON ANYTHING ON PARENT TABLE THEN WE SHOULD NEED TO DEFINE THIS CASCADES
