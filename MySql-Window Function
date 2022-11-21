@@ -1,8 +1,9 @@
 ############### Aggrigation based window function ######################
+COUNT(),MAX(),MIN(),SUM(),AVG(),
 
 
 
-##################### anlytical based window function #############################
+##################### analytical based window function #############################
 ROW_NUMBER
 RANK
 DENSE_RANK
