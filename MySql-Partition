@@ -16,6 +16,21 @@ partition p2 values less than (2021),
 partition p3 values less than (2022),
 partition p4 values less than (2023));
 
+################################# PARTITION BY COLUMN RANGE #############################################
+create table ineuron_courses8(
+course_name varchar(50) ,
+course_id int(10) ,
+course_title varchar(60),
+course_desc varchar(80),
+launch_date date,
+course_fee int,
+course_mentor varchar(60),
+course_launch_year int)
+partition by range columns(course_name ,course_id,course_launch_year )(
+partition p0 values less than ('aiops',105,2019),
+partition p1 values less than ('fsds' ,110,2021),
+partition p2 values less than ('MERN',116,2023)
+)
 
 ####################### PARTITION BY  HASH ##############################
 
@@ -56,6 +71,38 @@ course_mentor varchar(60),
 course_launch_year int)
 partition by key(course_id)
 partitions 10;
+
+######################### PARTITION BY LIST ####################################
+
+create table ineuron_courses9(
+course_name varchar(50) ,
+course_id int(10) ,
+course_title varchar(60),
+course_desc varchar(80),
+launch_date date,
+course_fee int,
+course_mentor varchar(60),
+course_launch_year int)
+partition by list columns(course_launch_year)(
+partition p0 values  in(2019,2020),
+partition p1 values  in(2021,2022),
+partition p2 values  in(2023)
+)
+################################## PARTITION BY LIST COLUMNS ################################
+create table ineuron_courses9(
+course_name varchar(50) ,
+course_id int(10) ,
+course_title varchar(60),
+course_desc varchar(80),
+launch_date date,
+course_fee int,
+course_mentor varchar(60),
+course_launch_year int)
+partition by list columns(course_name)(
+partition p0 values  in('aiops','data analytics','Dl','RL'),
+partition p1 values  in('fsds' ,'big data','blockchain'),
+partition p2 values  in('MERN','java','interview prep','fsda')
+)
 
 
 ################## TO KNOW PARTITION DESCRIPTITIONS ##########################
