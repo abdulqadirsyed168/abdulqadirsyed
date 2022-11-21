@@ -1,0 +1,20 @@
+############# PARTITION BY RANGE ######################
+
+create table ineuron_course1(
+course_name varchar(50),
+course_id int(10),
+course_title varchar(60),
+course_desc varchar(60),
+launch_date date,
+course_fee int,
+course_mentor varchar(60),
+course_launch_year int)
+partition by range (course_launch_year)(
+partition p0 values less than (2019),
+partition p1 values less than (2020),
+partition p2 values less than (2021),
+partition p3 values less than (2022),
+partition p4 values less than (2023));
+
+################## TO KNOW PARTITION DESCRIPTITIONS ##########################
+select partition_name , table_name, table_rows from information_schema.partitions where table_name = 'ineuron_course1'
