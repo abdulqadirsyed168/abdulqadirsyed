@@ -1,0 +1,11 @@
+select c.course_id , c.course_name , c.course_desc ,s.student_id,s.student_name ,s.student_course_id from course c
+inner join student s on c.course_id = s.student_course_id
+
+select c.course_id , c.course_name , c.course_desc ,s.student_id,s.student_name ,s.student_course_id from course c
+left join student s on c.course_id = s.student_course_id where s.student_id is null;
+
+select c.course_id , c.course_name , c.course_desc ,s.student_id,s.student_name ,s.student_course_id from course c
+right join student s on c.course_id = s.student_course_id where c.course_id is null
+
+select c.course_id , c.course_name , c.course_desc ,s.student_id,s.student_name ,s.student_course_id from course c
+cross  join student s 
