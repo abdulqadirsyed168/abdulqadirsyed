@@ -1,0 +1,20 @@
+#### TRIGGERS TO DECLARE FOR DATE ##################
+delimiter //
+create trigger course_before_insert
+before insert
+on course for each row
+begin
+   set new.create_date = sysdate();
+end; //
+
+### TRIGGERS TO DECLARE FOR DATE AND USER_NAME WHO HAVE ENTERED RECORDS ###################
+delimiter //
+create trigger course_before_insert
+before insert
+on course for each row
+begin
+   declare user_val varchar(50);
+   set new.create_date = sysdate();
+   select user() into user_val;
+   set new.user_info = user_val;
+end; //
