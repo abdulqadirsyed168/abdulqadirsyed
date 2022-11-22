@@ -18,3 +18,16 @@ begin
    select user() into user_val;
    set new.user_info = user_val;
 end; //
+
+### TRIGGERS TO DECLARE NUMBER OF TABLE WHILE ENTERING RECORDS #####################
+delimiter //
+create trigger course_before_insert
+before insert
+on course for each row
+begin
+   declare user_val varchar(50);
+   set new.create_date = sysdate();
+   select user() into user_val;
+   set new.user_info = user_val;
+   insert into ref_course values(sysdate(), user_val);
+end; //
