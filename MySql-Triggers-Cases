@@ -49,3 +49,20 @@ begin
 	update test2 set c1 = 'abc' where c1 = 'xyz';
 	delete from test3 where c1 = 'xyz';
 end; //
+
+
+########## TRIGGERS DECLARATION FOR DEL ONE RECORD IN SOME TABLE WE CAN ABLE TO INSERT THAT DELETED RECORD INTO OTHER TABLE ###################
+
+delimiter //
+create trigger del_before
+before delete on test1 for each row 
+begin
+	insert into test2(c1,c2,c3) values(old.c1,old.c2,old.c3);
+end; //
+
+
+
+
+
+
+
