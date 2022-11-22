@@ -8,4 +8,11 @@ course_desc varchar(50),
 course_tag varchar(50),
 index(course_id))
 
+create  table if not exists course1 (
+course_id int,
+course_name varchar(50),
+course_desc varchar(50),
+course_tag varchar(50),
+index(course_id,course_name))
+
 show index from course1
