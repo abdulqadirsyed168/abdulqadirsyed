@@ -1,6 +1,9 @@
 ########################## INDEXING IS MORE USEFULL IN SEARCH OPERATIONS WITH SOME CONDITIONS ################################
 INDEXING IS NOT USEFULL FOR THE THROUGHLY USING OF DELETE AND UPDATE AND INSERT OPERATIONS #################################
 
+############### IN CASE OF UNIQUE INDEXS IT WILL TAKE ONLY DISTINCT VALUE AND IT WILL FORM BINARY TREE
+############### IN CASE OF  INDEXS IT WILL TAKE DUPLICATE VALUE AND IT WILL FORM BINARY TREE
+
 create  table if not exists course1 (
 course_id int,
 course_name varchar(50),
@@ -14,5 +17,12 @@ course_name varchar(50),
 course_desc varchar(50),
 course_tag varchar(50),
 index(course_id,course_name))
+
+create  table if not exists course1 (
+course_id int,
+course_name varchar(50),
+course_desc varchar(50),
+course_tag varchar(50),
+unique index(course_id,course_name))
 
 show index from course1
