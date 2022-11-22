@@ -1,0 +1,11 @@
+########################## INDEXING IS MORE USEFULL IN SEARCH OPERATIONS WITH SOME CONDITIONS ################################
+INDEXING IS NOT USEFULL FOR THE THROUGHLY USING OF DELETE AND UPDATE AND INSERT OPERATIONS #################################
+
+create  table if not exists course1 (
+course_id int,
+course_name varchar(50),
+course_desc varchar(50),
+course_tag varchar(50),
+index(course_id))
+
+show index from course1
