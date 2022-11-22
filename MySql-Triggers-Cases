@@ -40,3 +40,12 @@ begin
 	insert into test2 values ("xyz",sysdate(),23354);
 	insert into test3 values ("xyz",sysdate(),23354);
 end; //
+
+######### TRIGGERS DECLARE TO UPDATE AND DELETE SIMULTANEOUSLY WHEN WE ENTER RECORDS FOR ONE TABLE ###########################
+delimiter //
+create trigger to_update_del_others
+after insert on test1 for each row 
+begin
+	update test2 set c1 = 'abc' where c1 = 'xyz';
+	delete from test3 where c1 = 'xyz';
+end; //
