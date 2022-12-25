@@ -62,6 +62,16 @@ Q. API- APPLICATION POGRAMM INTERFACE - A PROCESS WHICH PREOCCED YOUR REQUEST
 *OOZIE is scheduler
 *MAHOOT is data science related
 
+# HADOOP ARCHITECTURE:-
+
+* Name Node : Name node always try to keep metainformation and it always holds memory mapping. 
+* Data Node : It always holds actual data and process that data. 
+* Job Tracker : It control the overall execution in cluster. Task Tracker : It may runs on individual machine and control individual processing.
+
+* Combination of name node and job tracker is called Master Node. Combination of task tracer and data node is called Slave Node.
+
+
+
 
 
     
