@@ -71,6 +71,19 @@ Q. API- APPLICATION POGRAMM INTERFACE - A PROCESS WHICH PREOCCED YOUR REQUEST
 * Combination of name node and job tracker is called Master Node. Combination of task tracer and data node is called Slave Node.
 
 
+# CheckPoint : Combining the edit log and old FS_Images is called checkpoint. ALWAYS HAPPEN IN SECONDARY NAME NODE
+
+# Name Node : it have Primary name node and Secondary name node
+
+* In Primary name node it will have Fs_image that will aware of all Data node storage information.
+
+
+Secondary Name node : it will have EDIT file or EDIT Log information of wht kind of operations are been performed after 0 to 20 sec , 
+and it will also have old FS_IMAGE_0 , when ever it will combine with two EDIT file and FS_IMAGE_0 it will send to primary name node. AND PRIMARY WILL START FS_IMAGE
+FROM FS_IMAGE_20
+
+If Primary name node will go down then will have secondary FS_IMAGES of primary one.
+If secondary name will go down then secondary will have multiple replicas.
 
 
 
