@@ -34,6 +34,36 @@ Q. CLUSTER - GROUP OF NODES
    
 Q. API- APPLICATION POGRAMM INTERFACE - A PROCESS WHICH PREOCCED YOUR REQUEST
    EX:- WANT TO SEE MOVIE MEDIA PLAYER IS API
+   
+
+
+*2002 Goggle has introduced GFS File  system to read and write data from disk
+*Before reading data the data we get  distributed across the nodes
+*2004 Goggle has released another paper  called GMR this is for processing
+*2005-2006 DOUG CUTTING has introduced  hadoop
+*Hadoop- Comes HDFS and MR
+*Hadoop Framework- Comes HDFS MR and  diffrent companies and different  individual and communities has improve  Hadoop
+*HIVE was invented by FACEBOOK to improve Performance of Mapreduce in SQL language
+*PIG was invented by YAHOOH and they dont  want to interact with Mapreduce with any  kind pogramming language so they will use  Scripting language PIGLATIN LANGUAGE.
+*Internaly HIVE and PIG will run as  Mapreduce in java
+*SQOOP was invented by group of companies
+ SQOOP will do Import and Export of data  from hadoop to RDBMS and RDBMS to hadoop
+*SQOOP will internaly run on java it will   some SQOOP commands
+*OOZIE is a scheduler was invented by  YAHOOH 
+*Map reduce is an upstraction of  HIVE,PIG,SQOOP,OOZIE
+*HBASE was invented by FACEBOOK its an NOSQLdatabase 
+*MAHOOT its used by DATASCIENCE
+*FLUME is to connect any kind of data  bases,urls,twitter,facebook only Import  data from database to hadoop
+*LOSELY COUPLED FRAMEWORK
+*TIGHTLY COUPLED FRAMEWORK
+*HDFS and HBASE is Storagepart
+*MR,HIVE,PIG is Processing data
+*SQOOP,FLUME is Pipeline of data
+*OOZIE is scheduler
+*MAHOOT is data science related
+
+
+
     
     
     
