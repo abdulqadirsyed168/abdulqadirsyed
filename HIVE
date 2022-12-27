@@ -1,0 +1,24 @@
+* Hive is query engine
+* Hive is an vehical which upon running on  MapReduce engine OR Spark engine
+* Hive is an upstraction of MapReduce
+* Hive internaly use MapReduce Instead of  Java it using SQL
+* Spark is just replacement of MapReduce  not entire Hadoop system
+* Hive have Meta data information
+
+# Meta data Example:
+While we create Table Hive will have only schema information not a data in the table
+How many cloumns weather it have index or not.
+
+Q. Where will Hive Metadata information is   store?
+Ans. Hive will store Metadata infromation in  RDBMS,ORACLE,MYSQL...etc it called as REMOTE METASTORE MECHANISM.
+
+*Hive internally have DURBY which stores  the Metadata Information and it called as  EMBADED METASTORE MECHANISM.
+
+EMBADED METASTORE-
+Mostly embaded metastore will not use
+Becauses it will save Durby metastore to an each node
+
+
+
+
+ 
