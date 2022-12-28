@@ -35,6 +35,16 @@ EXTERNAL DB FOR HIVE INSTEAD OF DERBY IN HIVE
   1. WHILE CREATING INTERNAL TABLE IN HIVE IT WILL STORE METADATA LIKE SCHEMA WILL BE STORED IN HIVE
   2. THE ACTUAL DATA WILL BE GET STORED IN HIVE AS WELL 
   3. IF WE DROP THE INTERNAL TABLE THE TABLE AND SCHEMA GET VANISHIED FROM HIVE
+  EXAMPLE:-
+  create table department_data #INTERNAL TABLES                                                                                                           
+    > (                                                                                                                                       
+    > dept_id int,                                                                                                                            
+    > dept_name string,                                                                                                                       
+    > manager_id int,                                                                                                                         
+    > salary int)                                                                                                                             
+    > row format delimited                                                                                                                    
+    > fields terminated by ','
+  
   
   
 # EXTERNAL TABLE :-
