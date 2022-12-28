@@ -67,7 +67,7 @@ In order to set a constant number of reducers:
  set mapreduce.job.reduces=3;
 
 
-create table department_data                                                                                                            
+create table department_data #INTERNAL TABLES                                                                                                           
     > (                                                                                                                                       
     > dept_id int,                                                                                                                            
     > dept_name string,                                                                                                                       
@@ -75,6 +75,18 @@ create table department_data
     > salary int)                                                                                                                             
     > row format delimited                                                                                                                    
     > fields terminated by ','
+    
+# Create external table 
+create external table department_data_external                                                                                          
+    > (                                                                                                                                       
+    > dept_id int,                                                                                                                            
+    > dept_name string,                                                                                                                       
+    > manager_id int,                                                                                                                         
+    > salary int                                                                                                                              
+    > )                                                                                                                                       
+    > row format delimited                                                                                                                    
+    > fields terminated by ','                                                                                                                
+    > location '/tmp/hive_data_class_2/'; 
     
 
 # create a table which will store data in parquet
