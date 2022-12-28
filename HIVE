@@ -44,6 +44,13 @@ EXTERNAL DB FOR HIVE INSTEAD OF DERBY IN HIVE
     > salary int)                                                                                                                             
     > row format delimited                                                                                                                    
     > fields terminated by ','
+    
+   # For data load from local
+load data local inpath 'file:///tmp/hive_class/depart_data.csv' into table department_data; 
+
+# Load data from hdfs location
+load data inpath '/tmp/hive_data_class_2/' into table department_data_from_hdfs;
+
   
   
   
