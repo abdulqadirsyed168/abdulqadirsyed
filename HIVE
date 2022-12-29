@@ -118,8 +118,9 @@ create external table department_data_external
                         SUPPOSE WE USE TWO LARGE DATASETS 
                         ONE OF DATA SET HAVE 4 BUCKETS
                         OTHER DATA SET HAVE 2 BUCKETS
-                     IF TWO BUCKETS IN ONE MAPPER BLOCK OUT OF 4 BUCKETS, THEN OTHER DATASET NEED TO SEND MATCHED VALUES FROM OTHER DATASET WITH 2 BUCKETS TO MAPPER BLOCK
-                     
+             IF TWO BUCKETS IN ONE MAPPER BLOCK OUT OF 4 BUCKETS, THEN OTHER DATASET NEED TO SEND MATCHED VALUES FROM OTHER DATASET WITH 2 BUCKETS TO MAPPER BLOCK
+             SET hive.auto.convert.join=true;
+             SET hive.optimize.bucketmapjoin=true;    
                         
                       
                       
