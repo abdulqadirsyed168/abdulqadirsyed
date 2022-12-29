@@ -16,6 +16,18 @@ tblproperties ("skip.header.line.count" = "1");
 # load data in parquet file for serlizied and deserlizied for serde
 from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
+# TO CREATE STATIC_PARTITION TABLE EXAMPLE 
+create table customer_static_part
+(
+customer_id INT,
+customer_name VARCHAR(50),
+contact_name VARCHAR(50),
+address VARCHAR(50),
+city VARCHAR(50),
+postal_code VARCHAR(50)
+)
+partitioned by (country VARCHAR(50));
+
 # set this property if doing static partition
 NO NEED TO SET THIS PROPERTIE HIVE BYDEFAULT RUNS ON STATIC PART set hive.mapred.mode=strict;
 
