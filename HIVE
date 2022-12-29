@@ -79,7 +79,14 @@ create external table department_data_external
     > )                                                                                                                                       
     > row format delimited                                                                                                                    
     > fields terminated by ','                                                                                                                
-    > location '/tmp/hive_data_class_2/';            
+    > location '/tmp/hive_data_class_2/';
+    
+    
+ # PARTITION IN HIVE:-
+ 1. STATIC PARTITION
+ 2. DYNAMIC PARTITION
+ BY DEFAULT HIVE WILL FOLLOW STATIC PARTITION
+ IF HIVE WILL NOT STATIC PARTITON THEN NEED TO ENABLE PROPERTIE SET hive.mapred.
 
 
 
