@@ -113,6 +113,15 @@ create external table department_data_external
                       IN MAP SIDE JOIN SMALLER DATA SET WOULD SENT TO EACH MAPPER BLOCK AND NO NEED OF REDUCERS JOIN WILL HAPPEN IN MAP SIDE
                       SET hive.auto.convert.join=true;
                       
+ 3. BUCKET MAP JOIN :-
+                        IN BUCKET MAP JOIN NUMBER OF BUCKETS SHOULD BE MULTIPLE OF EACH OTHER
+                        SUPPOSE WE USE TWO LARGE DATASETS 
+                        ONE OF DATA SET HAVE 4 BUCKETS
+                        OTHER DATA SET HAVE 2 BUCKETS
+                     IF TWO BUCKETS IN ONE MAPPER BLOCK OUT OF 4 BUCKETS, THEN OTHER DATASET NEED TO SEND MATCHED VALUES FROM OTHER DATASET WITH 2 BUCKETS TO MAPPER BLOCK
+                     
+                        
+                      
                       
  
  
