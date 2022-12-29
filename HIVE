@@ -98,7 +98,7 @@ create external table department_data_external
  
  # JOINS IN HIVE:-
  1. REDUCE SIDE JOIN
- 2. MAP SIDE JOIN
+ 2. MAP SIDE JOIN(BROAD CAST JOIN)
  3. BUCKET MAP JOIN
  4. SORT MERGE BUCKET MAP JOIN(SMBM)
  
