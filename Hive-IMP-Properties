@@ -28,19 +28,44 @@ postal_code VARCHAR(50)
 )
 partitioned by (country VARCHAR(50));
 
+# TO CREATE TABLE FOR BUCKETING:- TABLE EXAMPLE
+set hive.exec.dynamic.partition = true;
+set hive.exec.dynamic.partition.mode = nonstrict;
+set hive.enforce.bucketing = true;
+
+ create table customer_bucketing
+    > (
+    > customer_id INT,
+    > customer_name VARCHAR(50),
+    > contact_name VARCHAR(50),
+    > address VARCHAR(50),
+    > city VARCHAR(50),
+    > postal_code VARCHAR(50),
+    > country VARCHAR(50))
+    > clustered by (customer_name) into 4 buckets; #NEED TO MENTIONS ALL COLUMNS WHILE CREATING TABLE 
+
+
 # set this property if doing static partition
 NO NEED TO SET THIS PROPERTIE HIVE BYDEFAULT RUNS ON STATIC PART set hive.mapred.mode=strict;
 
 # set this property for dynamic partioning
-set hive.exec.dynamic.partition.mode=nonstrict;
+set hive.exec.dynamic.partition = true;
+set hive.exec.dynamic.partition.mode = nonstrict;
+set hive.exec.enforce.bucketing = true;
 
-# load data in static partition
+
+# load data in static partition table
 insert overwrite table sales_data_static_part partition(country = 'USA') select ordernumber,quantityordered,sales,year_id from sales_ord
 er_data_orc where country = 'USA';
 
 # load data in dynamic partition table
 insert overwrite table sales_data_dynamic_part partition(country) select ordernumber,quantityordered,sales,year_id,country from sales_or
 der_data_orc;
+
+# load data in bucketing table
+insert overwrite table customers_bucketing select * from customers;
+
+
 
 # set this property for bucketing
 set hive.enforce.bucketing=true;
