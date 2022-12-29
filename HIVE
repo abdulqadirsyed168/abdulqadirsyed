@@ -105,6 +105,11 @@ create external table department_data_external
  1. REDUCE SIDE JOIN :-
                         IN REDUCE SIDE JOIN IT WILL HAVE ONLY ONE REDUCER AND IT WILL BE USE ONLY FOR TWO SMALL DATASETS
                         SUPPOSE IF WE NEED TO DO INNER JOIN THE DATA SETS WOULD BE SMALLER AND WE NEED TO ENABLE PROPERTIE
+                        SET hive.auto.convert.join=false;
+                        
+                        
+ 2. MAP SIDE JOIN :-
+                       
  
  
 
