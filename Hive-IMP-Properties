@@ -114,6 +114,24 @@ create table sales_data_pq_final
 from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
 
+# PARTITION WITH BUCKETING:-
+set hive.exec.dynamic.partition = true;
+set hive.exec.dynamic.partition.mode = nonstrict;
+set hive.enforce.bucketing = true;
+
+ create table customer_partition_bucketing
+    > (
+    > customer_id INT,
+    > customer_name VARCHAR(50),
+    > contact_name VARCHAR(50),
+    > address VARCHAR(50),
+    > city VARCHAR(50),
+    > postal_code VARCHAR(50))
+    > partitioned by (country VARCHAR(50))
+    > clustered by (customer_name) into 4 buckets;
+
+
+
 
 
 
