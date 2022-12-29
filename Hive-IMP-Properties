@@ -16,7 +16,7 @@ tblproperties ("skip.header.line.count" = "1");
 # load data in parquet file for serlizied and deserlizied for serde
 from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
-# TO CREATE STATIC_PARTITION TABLE EXAMPLE 
+# TO CREATE STATIC_PARTITION OR DYNAMIC_PARTITION TABLE EXAMPLE 
 create table customer_static_part
 (
 customer_id INT,
