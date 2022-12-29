@@ -111,6 +111,7 @@ create external table department_data_external
  2. MAP SIDE JOIN :-
                       IN MAP SIDE JOIN ONE OF THE DATA SET WOULD BE BIGGER AND OTHER DATA SET WOULD BE SMALLER
                       IN MAP SIDE JOIN SMALLER DATA SET WOULD SENT TO EACH MAPPER BLOCK AND NO NEED OF REDUCERS JOIN WILL HAPPEN IN MAP SIDE
+                      SET hive.auto.convert.join=true;
                       
                       
  
