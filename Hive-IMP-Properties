@@ -129,6 +129,9 @@ set hive.enforce.bucketing = true;
     > postal_code VARCHAR(50))
     > partitioned by (country VARCHAR(50))
     > clustered by (customer_name) into 4 buckets;
+  
+  # load data
+ insert overwrite table customer_partition_bucketing partition(country) select * from customers;
 
 
 
