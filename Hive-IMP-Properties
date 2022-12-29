@@ -17,7 +17,7 @@ tblproperties ("skip.header.line.count" = "1");
 from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
 # set this property if doing static partition
-set hive.mapred.mode=strict;
+NO NEED TO SET THIS PROPERTIE HIVE BYDEFAULT RUNS ON STATIC PART set hive.mapred.mode=strict;
 
 # set this property for dynamic partioning
 set hive.exec.dynamic.partition.mode=nonstrict;
