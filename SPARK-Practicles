@@ -1,0 +1,33 @@
+dbutils.fs.mkdirs("/FileStore/Tables/TextFolder") #MAKE Directory
+
+# This two ways we can able to read a file 
+Emp_df = spark.read.csv("dbfs:/FileStore/Tables/TextFolder/emp.txt", header=True, inferSchema=True)
+Dep_df = spark.read.option("header",True).option("inferSchema",True).csv("dbfs:/FileStore/Tables/TextFolder/dep.txt")
+
+
+from pyspark.sql.functions import col
+
+Dep_df.select("*").show()
+Emp_df.select("EMPLOYEE_ID","FIRST_NAME").show()
+Emp_df.select(Emp_df.EMPLOYEE_ID,Emp_df.FIRST_NAME).show()
+Emp_df.select(Emp_df['EMPLOYEE_ID'],Emp_df['FIRST_NAME']).show()
+Emp_df.select(col("employee_id"),col("first_name")).show()
+Emp_df.select(col("employee_id").alias("Emp_id"),col("first_name").alias("F_name")).show()
+
+Emp_df.select("employee_id","first_name","salary").withColumn("New_salary",col("SALARY")+1000).show()
+Emp_df.withColumn("New_salary",col("salary")+1000).select("employee_id","first_name","new_salary").show()
+Emp_df.withColumn("salary",col("salary") - 1000).select("employee_id","first_name","salary").show()
+Emp_df.withColumnRenamed("salary","emp_salary").show()
+
+Emp_df.drop("commission_pct").show()
+Emp_df.filter(col("salary") < 5000).show()
+Emp_df.filter(col("salary") > 5000).show(100)
+Emp_df.filter(col("salary") < 5000).select("employee_id","first_name","last_name","salary").show(100)
+Emp_df.filter(col("department_id") == 50).select("employee_id","first_name","last_name","salary").show(100)
+Emp_df.filter("department_id <> 50").select("employee_id","first_name","last_name","salary","department_id").show(100)
+Emp_df.filter("department_id != 50").select("employee_id","first_name","last_name","salary","department_id").show(100)
+Emp_df.filter("department_id != 50").filter(col("salary") > 5000).select("employee_id","first_name","last_name","salary","department_id").show(100)
+Emp_df.filter("department_id == 50 and salary > 5000").select("employee_id","first_name","last_name","salary","department_id").show(100)
+
+Emp_df.distinct().show(100)
+Emp_df.dropDuplicates().show(100)
