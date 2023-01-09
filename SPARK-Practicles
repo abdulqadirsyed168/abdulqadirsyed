@@ -49,5 +49,11 @@ Emp_df.select("*").orderBy(col("salary").desc()).show()
 Emp_df.select("*").orderBy(col("salary").desc(),col("department_id").asc()).show()
 Emp_df.select("EMPLOYEE_ID","FIRST_NAME","DEPARTMENT_ID","SALARY").orderBy(col("salary").desc(),col("department_id").asc()).show()
 
+Emp_df.groupBy("department_id").sum("salary").show(100)
+Emp_df.groupBy("department_id").max("salary").show(100)
+Emp_df.groupBy("department_id").min("salary").show(100)
+Emp_df.groupBy("department_id","job_id").sum("salary").show(100)
+Emp_df.groupBy("department_id","job_id").sum("salary","employee_id").show(100)
+
 
 
