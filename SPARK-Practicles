@@ -7,6 +7,10 @@ Dep_df = spark.read.option("header",True).option("inferSchema",True).csv("dbfs:/
 
 from pyspark.sql.functions import col
 from pyspark.sql.functions import *
+from pyspark.sql.types import StructType,StructField,StructType,IntegerType,StringType
+from pyspark.sql.window import Window
+
+
 
 Dep_df.select("*").show()
 Emp_df.select("EMPLOYEE_ID","FIRST_NAME").show()
