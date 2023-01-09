@@ -66,6 +66,7 @@ Emp_df.withColumn("Emp_Grade", when( col("salary") > 15000, "A").when( ( col("sa
 Emp_df.createOrReplaceTempView("Employee")
 spark.sql("select * from Employee limit 5").show()
 spark.sql("select department_id,sum(salary) as total_salary from Employee group by department_id").show()
+spark.sql("select employee_id, department_id, rank() over(partition by department_id order by salary desc) as rank_salary from employee").show()
 
 
 
