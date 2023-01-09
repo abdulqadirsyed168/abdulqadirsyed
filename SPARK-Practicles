@@ -63,4 +63,9 @@ avg("salary").alias("Avg_salary")).where(col("Max_salary") >= 10000).show()
 Emp_df.withColumn("Emp_Grade", when( col("salary") > 15000, "A").when( ( col("salary") >= 10000) & ( col("salary") < 15000), "B").otherwise("C")).show(100)
 
 
+Emp_df.createOrReplaceTempView("Employee")
+spark.sql("select * from Employee limit 5").show()
+spark.sql("select department_id,sum(salary) as total_salary from Employee group by department_id").show()
+
+
 
