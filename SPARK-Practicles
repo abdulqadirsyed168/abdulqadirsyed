@@ -55,5 +55,10 @@ Emp_df.groupBy("department_id").min("salary").show(100)
 Emp_df.groupBy("department_id","job_id").sum("salary").show(100)
 Emp_df.groupBy("department_id","job_id").sum("salary","employee_id").show(100)
 
+Emp_df.groupBy("department_id").agg(sum("salary").alias("Sum_salary"),max("salary").alias("Max_salary"),min("salary").alias("Min_salary"),
+avg("salary").alias("Avg_salary")).show(100)
+Emp_df.groupBy("department_id").agg(sum("salary").alias("Sum_salary"),max("salary").alias("Max_salary"),min("salary").alias("Min_salary"),
+avg("salary").alias("Avg_salary")).where(col("Max_salary") >= 10000).show() 
+
 
 
