@@ -44,5 +44,10 @@ Emp_df.select(min("salary").alias("Min_salary")).show()
 Emp_df.select(avg("salary").alias("Avg_salary")).show()
 Emp_df.select(sum("salary").alias("Sum_salary")).show()
 
+Emp_df.select("*").orderBy("salary").show()
+Emp_df.select("*").orderBy(col("salary").desc()).show()
+Emp_df.select("*").orderBy(col("salary").desc(),col("department_id").asc()).show()
+Emp_df.select("EMPLOYEE_ID","FIRST_NAME","DEPARTMENT_ID","SALARY").orderBy(col("salary").desc(),col("department_id").asc()).show()
+
 
 
