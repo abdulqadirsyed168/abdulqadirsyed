@@ -70,6 +70,11 @@ spark.sql("select employee_id, department_id, rank() over(partition by departmen
 
 Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "inner").show()
 Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "inner").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
+Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "left").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
+Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "right").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
+Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "fullouter").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
+
+
 
 
 
