@@ -27,7 +27,10 @@
                                          |             |                 |
                                          BROKER 1      BROKER 2          BROKER 3     
       BROKERS ARE STORING DATA
+      
+      
 2. TOPICS :- 
-           
+            TOPICS SMALL SEGEMNTS OR A SPACE NAME GIVEN WITH IN KAFKA
+            
                                          
 
