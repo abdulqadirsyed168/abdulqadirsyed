@@ -19,4 +19,15 @@
 8.PARALLESIM IN KAFKA
 9.BACK PRESSURE
 
+1.BROKER :- BROKER IT'S MEANS SERVERS IN CLUSTER   
+                                                     LEADER
+                                                       |
+                                                       |
+                                          _____________|_________________
+                                         |             |                 |
+                                         BROKER 1      BROKER 2          BROKER 3     
+      BROKERS ARE STORING DATA
+2. TOPICS :- 
+           
+                                         
 
