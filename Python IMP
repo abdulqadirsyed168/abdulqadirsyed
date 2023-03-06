@@ -44,3 +44,12 @@ A. import math
    
    print("\nFor quad eq. {}x^2+{}x^1+{}".format(a,b,c))
    print("The solution are : {} and {}".format(root1,root2))   
+   
+ Q.Write a Python program to swap two variables without temp variable
+ A. v1 = 
+    v2 =
+    
+    v2 = v1+v2
+    v1 = v2-v1
+    v2 = v2-v1
+    
