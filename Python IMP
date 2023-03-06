@@ -1,0 +1,46 @@
+TO FIND AREA OF TRIANGLE
+area = height*base/2
+
+SWAPPING OF TWO NUMBER USING TEMP VARIABLE
+temp=var1
+var1=var2
+var2=temp
+
+import random
+print(random.random()) IT WILL PRINT RANDOM NUMBERS
+print(random.randint(1,50)) IT WILL PRINT RANDOM NUMBERS INBETWEEN 1 TO 50
+
+ Q.Write a Python program to convert kilometers to miles
+ A. km = 6
+ miles = km/1.60934
+ 
+ Q.Write a Python program to convert Celsius to Fahrenheit
+ A. c = 32
+    f = (9*c/5)+32
+    print("For Celsius = {} equivalent Fahrenheit = {}".format(c,f))
+    
+Q.Write a Python program to display calendar
+A. import calendar
+   year = 2012
+   print(calendar.calendar(year))
+   
+   year = 2012
+   month = 12
+   print(calendar.month(year,month))
+
+Q.Write a Python program to solve quadratic equation
+A. import math
+   print("ax^2+bx^1+c = 0")
+   print("enter coefficient of a,b,c)
+   
+   a = int(input("enter coeff of a: ")
+   b = int(input("enter coeff of b: ")
+   c = int(input("enter coeff of c: ")
+   
+   d = (b**2)-(4*a*c)
+   
+   root1 = (-1*b)+(math.sqrt(d)) / (2*a)
+   root2 = (-1*b)-(math.sqrt(d)) / (2*a)
+   
+   print("\nFor quad eq. {}x^2+{}x^1+{}".format(a,b,c))
+   print("The solution are : {} and {}".format(root1,root2))   
