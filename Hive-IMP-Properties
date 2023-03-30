@@ -1,3 +1,6 @@
+#COPY FROM LOCAL FILE TO HADOOP FILE SYSTEM FOLDER
+hadoop fs -put file:///tmp/foldername hdfs:///foldername
+
 # For data load from local
 load data local inpath 'file:///tmp/hive_class/depart_data.csv' into table department_data; 
 
