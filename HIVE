@@ -67,7 +67,7 @@ load data inpath '/tmp/hive_data_class_2/' into table department_data_from_hdfs;
 # EXTERNAL TABLE :-
   1. WHILE CREATING EXTERNAL TABLE IN HIVE IT WILL ALSO STORE METADATA OR SCHEMA WILL BE STORED IN HIVE
   2. THE ACTUAL DATA WILL NOT GET STORED IN HIVE INSTEAD OF THAT THE ACTUAL DATA WILL BE POINTING TO DATA LOCATION
-  3. IF WE DROP THE EXTERNAL TABLE THE TABLE WILL NOT BE REMOVED FROM HADOOP.
+  3. IF WE DROP THE EXTERNAL TABLE THE TABLE WILL NOT BE REMOVED FROM HADOOP BUT SCHEMA WILL GET DELETED.
   
  EXAMPLE:- 
 create external table department_data_external                                                                                          
