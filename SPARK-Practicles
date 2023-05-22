@@ -1,3 +1,15 @@
+HOW MANY WAYS CAN WE CREATE RDD
+
+rdd = sc.parallelize(range(10))
+rrd1 = spark.sparkContext.parallelize(range(10))
+
+HOW MANY WAYS CAN WE ABLE TO CONVERT RDD TO DF
+
+df = rdd1.toDF(schema = [])
+df = spark.createDataFrame(rdd1, schema = [])
+
+
+
 dbutils.fs.mkdirs("/FileStore/Tables/TextFolder") #MAKE Directory
 
 # This two ways we can able to read a file 
