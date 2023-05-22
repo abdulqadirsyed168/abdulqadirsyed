@@ -15,6 +15,13 @@ df = sqlContext.createDataFrame
 TO CONVERT DATAFRAME TO SQL
 df.createOrReplaceTempView('table_name')
 
+READ DIFFERENT FILE FORMAT IN PYSPARK
+
+Books_df = spark.read.format("xml").option("rootTag", "books").option("rowTag", "book").load("dbfs:/FileStore/Tables/XmlFolder/Books.xml")-----XML FORMAT
+Filename_df = spark.read.json("/tmp/Filename.type")-------JSON SINGLE LINE FORMAT
+Filename_df = spark.read.option("multiline", "true").json("/tmp/Filename.type")---------------JSON MULTI LINE FORMAT
+userdata2_df = spark.read.parquet("dbfs:/FileStore/Tables/ParquetFolder/userdata2.parquet")
+
 
 
 
@@ -107,6 +114,28 @@ Emp_df.withColumn("sum", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID",
 
 windowSpec = Window.partitionBy("DEPARTMENT_ID")
 Emp_df.withColumn("sum", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","sum").show(100)
+
+
+FILTER CONDITIONS
+
+display(name_df.filter(name_df.columnname ==, >, <, >=, <=, != ))
+
+display(name_df.filter((name_df.columnname =="string value") & (name_df.columnname == "string value")) ) #AND
+display(name_df.filter((name_df.columnname =="string value") | (name_df.columnname == "string value")) ) #OR
+
+display(name_df.filter((name_df.columnname.startswith("value"))) ) 
+display(name_df.filter((name_df.columnname.endswith("value"))) )
+display(name_df.filter((name_df.columnname.contains("value"))) ) 
+
+display(name_df.filter((name_df.columnname.isNull())) )
+display(name_df.filter((name_df.columnname.isNotNull())) )
+
+display(name_df.filter((name_df.columnname.isin(1,2,3))) )
+display(name_df.filter((~name_df.columnname.isin())) )
+
+display(name_df.filter((name_df.columnname.like("%stringname%"))) )
+display(name_df.filter((name_df.columnname.like("%stringname"))) )
+display(name_df.filter((name_df.columnname.like("stringname%"))) )
 
 
 
