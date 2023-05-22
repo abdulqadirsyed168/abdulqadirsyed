@@ -8,6 +8,14 @@ HOW MANY WAYS CAN WE ABLE TO CONVERT RDD TO DF
 df = rdd1.toDF(schema = [])
 df = spark.createDataFrame(rdd1, schema = [])
 
+TWO WAYS WE CAN ABLE TO CREATE DATAFRAME
+df = spark.createDataFrame(var1, schema = [])
+df = sqlContext.createDataFrame
+
+TO CONVERT DATAFRAME TO SQL
+df.createOrReplaceTempView('table_name')
+
+
 
 
 dbutils.fs.mkdirs("/FileStore/Tables/TextFolder") #MAKE Directory
