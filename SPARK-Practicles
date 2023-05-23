@@ -1,9 +1,12 @@
-CREATE SPARK SESSION
+CREATE SPARK CONTEXT
+conf = SparkConf().setAppName(appName).setMaster(master)
+sc = SparkContext(conf=conf)
 
+CREATE SPARK SESSION
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.master(local[*]).appName().config().getOrCreate()
 
-Enabling Hive to use in Spark
+ENABLE HIVE IN SPARK
 spark = SparkSession.builder()
       .master("local[1]")
       .appName("SparkByExamples.com")
