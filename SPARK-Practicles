@@ -1,3 +1,8 @@
+CREATE SPARK SESSION
+
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.master(local[*]).appName().config().getOrCreate()
+
 HOW MANY WAYS CAN WE CREATE RDD
 
 rdd = sc.parallelize(range(10))
