@@ -3,6 +3,14 @@ CREATE SPARK SESSION
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.master(local[*]).appName().config().getOrCreate()
 
+Enabling Hive to use in Spark
+spark = SparkSession.builder()
+      .master("local[1]")
+      .appName("SparkByExamples.com")
+      .config("spark.sql.warehouse.dir", "<path>/spark-warehouse")
+      .enableHiveSupport()
+      .getOrCreate();
+
 HOW MANY WAYS CAN WE CREATE RDD
 
 rdd = sc.parallelize(range(10))
@@ -26,6 +34,8 @@ Books_df = spark.read.format("xml").option("rootTag", "books").option("rowTag", 
 Filename_df = spark.read.json("/tmp/Filename.type")-------JSON SINGLE LINE FORMAT
 Filename_df = spark.read.option("multiline", "true").json("/tmp/Filename.type")---------------JSON MULTI LINE FORMAT
 userdata2_df = spark.read.parquet("dbfs:/FileStore/Tables/ParquetFolder/userdata2.parquet")
+
+
 
 
 
