@@ -1,3 +1,37 @@
+SPARK SUBMIT COMMAND
+./bin/spark-submit \
+  --master <master-url> \
+  --deploy-mode <deploy-mode> \
+  --conf <key<=<value> \
+  --driver-memory <value>g \
+  --executor-memory <value>g \
+  --executor-cores <number of cores>  \
+  --jars  <comma separated dependencies>
+  --class <main-class> \
+  <application-jar> \
+  [application-arguments]
+  
+SPARK SUMIT COMMAND YARN
+./bin/spark2-submit \
+   --master yarn \
+   --deploy-mode cluster \
+   --driver-memory 8g \
+   --executor-memory 16g \
+   --executor-cores 2  \
+   --class org.apache.spark.examples.SparkPi \
+   /spark-home/examples/jars/spark-examples_versionxx.jar 80
+   
+
+# RUNNING SPARK APPLICATION ON STANDALONE CLUSTER
+./bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://192.168.231.132:7077 \
+  --deploy-mode cluster \
+  --executor-memory 5G \
+  --executor-cores 8 \
+  /spark-home/examples/jars/spark-examples_versionxx.jar 80
+
+
 CREATE SPARK CONTEXT
 conf = SparkConf().setAppName(appName).setMaster(master)
 sc = SparkContext(conf=conf)
