@@ -47,6 +47,9 @@ spark = SparkSession.builder()
       .config("spark.sql.warehouse.dir", "<path>/spark-warehouse")
       .enableHiveSupport()
       .getOrCreate();
+  
+ SPARK SUBMIT AFTER CREATING ALL CODE IN .py file and we need to run in terminal CMD promt spark-submit
+ spark-submit script.py &> results.txt
 
 HOW MANY WAYS CAN WE CREATE RDD
 
