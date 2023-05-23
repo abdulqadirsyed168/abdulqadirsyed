@@ -1,0 +1,72 @@
+#AdaptiveQueryExecution (AQE) is a feature in Spark SQL that allows Spark to dynamically re-optimize the execution plan of a query based on runtime statistics. This can improve the performance of queries by up to 10x in some cases.
+AQE works by monitoring the execution of a query and collecting runtime statistics about the data. 
+
+These statistics are then used to identify opportunities for improvement in the execution plan. 
+
+For example, if Spark determines that a particular join operation is not performing well, it can re-optimize the plan to use a different join algorithm.
+
+AQE is enabled by default in Spark 3.0 and later. To disable AQE, set the spark.sql.adaptive.enabled configuration to false.
+
+Here are some of the benefits of using AQE:
+
+Improved performance: AQE can significantly improve the performance of queries by up to 10x in some cases.
+Reduced latency: AQE can reduce the latency of queries by executing them more efficiently.
+Increased scalability: AQE can improve the scalability of queries by making them more efficient to execute on large datasets.
+
+Code Snippet :
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.getOrCreate()
+
+# Read data from a CSV file
+df1 = spark.read.csv("data1.csv", header=True, inferSchema=True)
+df2 = spark.read.csv("data2.csv", header=True, inferSchema=True)
+
+# Perform transformations
+joined_df = df1.join(df2, on="id", how="inner")
+
+# Trigger an action on the joined DataFrame
+result = joined_df.collect()
+
+# Enable adaptive query execution
+spark.conf.set("spark.sql.adaptive.enabled", "true")
+
+# Re-execute the query
+result = joined_df.collect()
+
+spark.stop()
+
+In this example, We then trigger an action on the joined DataFrame to collect the results while performing joins.
+
+Next, we enable adaptive query execution by setting the spark.sql.adaptive.enabled configuration to true.
+ 
+ In this case, Spark will re-optimize the execution plan and use a broadcast join instead of a sort-merge join. This will improve the performance of the query.
+
+Here is a breakdown of the execution plans for the query with and without adaptive query execution enabled:
+
+No AQE Enabled :
+
+== Physical Plan ==
+*HashAggregate(keys=[#11], functions=[count(1)])
++- Exchange hashpartitioning(numPartitions=2)
+ +- *SortMergeJoin(condition=[#10 = #13], joinType=[InnerJoin], numPartitions=2)
+ +- *BroadcastExchange hashpartitioning(numPartitions=2)
+ +- *Project [id#8]
+ +- *Scan [data1#6]
+ +- *Project [id#12]
+ +- *Scan [data2#7]
+
+With AQE Enabled :
+
+== Physical Plan ==
+*BroadcastHashJoin(condition=[#10 = #13], joinType=[InnerJoin], numPartitions=2)
++- *Project [id#12]
+ +- *Scan [data2#7]
++- *Project [count(1)]
+ +- *Project [id#8]
+ +- *Scan [data1#6]
+
+Finally to re-optimize the execution plan and it uses a broadcast join instead of a sort-merge join. This resulted in a significant performance improvement.
+
+Please reach out for any qns.
