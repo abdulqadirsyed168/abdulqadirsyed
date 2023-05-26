@@ -1,0 +1,11 @@
+INCREMENTAl LOAD WILL KEPT THE BOTH HISTORY AND UPDATED RECORDS AND WE WILL BE ADDING SOME ATTTRIBUTS LIKE IS_ACTIVE,START_DATE,END_DATE,SURROGATEKEY
+SURROGATE KEY WILL HAVE DIFFERENT VALUES FOR EACH ROW RECORD
+
+SURROGATE KEY ADDING IN PYSPARK DATAFRAME
+
+from pyspark.sql.functions import monotonically_increasing_id
+from pyspark.sql.functions import row_number
+from pyspark.sql.window import Window
+
+df.withColumn('surrogate_key', monotonically_increasing_id()).show()
+df.withColumn('surrogate_key', row_number().over(Window.orderBy('exsisting_col_name'))).show()
