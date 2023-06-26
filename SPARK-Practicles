@@ -162,6 +162,7 @@ Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "inner").selec
 Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "left").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
 Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "right").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
 Emp_df.join(Dep_df, Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID, "fullouter").select(Emp_df.EMPLOYEE_ID,Emp_df.DEPARTMENT_ID,Dep_df.DEPARTMENT_NAME).show(100)
+from pyspark.sql.functions import broadcast
 Emp_df.join(broadcast((Dep_df), Emp_df.DEPARTMENT_ID == Dep_df.DEPARTMENT_ID).show()
 
 
