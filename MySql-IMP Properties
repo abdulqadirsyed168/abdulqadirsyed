@@ -7,6 +7,10 @@ ALTER TABLE sales1 ADD COLUMN order_date_new date after order_date--------------
 
 UPDATE sales1 SET order_date_new = str_to_date(order_date, '%m/%d/%Y')
 
+SELECT * FROM WORKER WHERE MOD(WORKER_ID ,2) !=0
+SELECT * FROM WORKER WHERE MOD(WORKER_ID ,2) <>0
+SELECT * FROM WORKER WHERE MOD(WORKER_ID ,2) =0
+
 
 IN BUILT FUNCTION IN MYSQL FOR DATE,DAY,YEAR,TIME
 
