@@ -5,10 +5,20 @@ Authentication Method
 
 ADF to ADLS Gen 2 = System Assigned Managed Identity(SAMI)
 ADF to ADB = System Assigned Managed Identity(SAMI)
+ADF to Azure Databricks Delta lake = System Assigned Managed Identity(SAMI)
 ADF to Azure key vault = System Assigned Managed Identity(SAMI)
 ADB to ADLS Gen 2 = SPN(Service principal)
 
 Linked service Azure Databricks Delta lake
+Go to Databricks workspace
+click access control(IAM)
+click add = Add role assignment
+goto priviledged administrator roles = select contributer
+click next
+click managed identity
+select members
+
 1.Authentication method = System Assigned Managed Identity(SAMI)
 2.choose your databricks workspace
-3.CLUSTER ID = 
+3.CLUSTER ID = Launch Databricks workspace,go to compute,click cluster, goto JDBC/ODBC, goto HTTPS path copy end part
+
