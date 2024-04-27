@@ -1,1 +1,14 @@
+Authentication Method
+1.System Assigned Managed Identity(SAMI): It's default created and attaching to ADB to ADF, No scope of delete in future. owent get deleted it does not have expire date.
+2.User Assigned Managed Identity(UAMI): There can be scope to be delete by some one in future. all pipelines will stop our linked services will fail.
+3.Access token : But it has expire
 
+ADF to ADLS Gen 2 = System Assigned Managed Identity(SAMI)
+ADF to ADB = System Assigned Managed Identity(SAMI)
+ADF to Azure key vault = System Assigned Managed Identity(SAMI)
+ADB to ADLS Gen 2 = SPN(Service principal)
+
+Linked service Azure Databricks Delta lake
+1.Authentication method = System Assigned Managed Identity(SAMI)
+2.choose your databricks workspace
+3.CLUSTER ID = 
