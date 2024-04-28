@@ -9,7 +9,9 @@ ADF to Azure Databricks Delta lake = System Assigned Managed Identity(SAMI)
 ADF to Azure key vault = System Assigned Managed Identity(SAMI)
 ADB to ADLS Gen 2 = SPN(Service principal)
 
-Linked service Azure Databricks Delta lake
+System Assigned Managed Identity(SAMI) has to give access from Access control(IAM) afor every Dashboard like ADB,ADLS,KEY VAULT
+
+Linked service ADF to Azure Databricks Delta lake
 Go to Databricks workspace
 click access control(IAM)
 click add = Add role assignment
@@ -17,6 +19,74 @@ goto priviledged administrator roles = select contributer
 click next
 click managed identity
 select members
+select your ADF
+create
+
+Linked service ADF to ADB
+Go to Databricks workspace
+click access control(IAM)
+click add = Add role assignment
+goto priviledged administrator roles = select contributer
+click next
+click managed identity
+select members
+select your ADF
+create
+
+Linked service ADF to ADLS
+Go to ADLS workspace
+click access control(IAM)
+click add = Add role assignment
+goto job function roles = select storage blob data contributor
+click next
+click managed identity
+select members
+select your ADF
+create
+
+Linked service Azure key vault to ADF,ADB,ADLS
+Go to keyvaults dashboard
+click your keyvault
+click on access policies
+in permission
+goto secret permission
+select get,list,set
+next
+goto principal
+search for SAMI
+create
+Now create secrets for mysql,SFTP 
+Go to Azure key vault workspace
+click access control(IAM)
+click add = Add role assignment
+goto job function roles = select storage blob data contributor
+click next
+click managed identity
+select members
+select your ADF
+create
+
+Linked service ADLS to ADB(SPN)
+Go to Azure active directory(Entra ID)
+click on app registrations
+click on New registration
+click register
+copy application id,tenant id
+click certificates and secrets
+create it
+copy the value
+Go to ADLS workspace
+click access control(IAM)
+click add = Add role assignment
+goto job function roles = select storage blob data contributor
+click next
+click SERVICE PRINCIPAL
+select members
+select your SPN
+create
+Go to databricks
+copy paste storagename,application id,tenant id
+and copy paste it to cluster configuration in spark config
 
 1.Authentication method = System Assigned Managed Identity(SAMI)
 2.choose your databricks workspace
