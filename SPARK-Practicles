@@ -103,6 +103,40 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import StructType,StructField,StructType,IntegerType,StringType
 from pyspark.sql.window import Window
 
+Performance Optimization
+Repartion
+Coalesce
+Partion
+Bucketing
+
+sc.defaultParallelism to check partitons
+rdd.getNumPartitions()
+.glom() To check partition wise data df.glom().collect()
+
+Repartion
+It involves shuffeling
+df1 = df.repartition(20)
+df1.rdd.glom().collect()
+df2 = df.repartition(2)
+df2.rdd.glom().collect()
+
+Coalesce
+It does not involve shuffeling 
+df2 = df.coalesce(2)
+df2.rdd.glom().collect()
+
+
+PARTITION
+Partion will be perfom on low cordinality means less unique values for a column
+df.write.partitionBy("column_name").csv(Path)
+df.write.option("header", True).partitionBy("year").mode("overwrite").csv("path")
+df.write.option("header", True).partitionBy("year","sex").mode("overwrite").csv("path")
+df.write.option("header", True).option("maxRecordsPerFile", 4200).partitionBy("year").mode("overwrite").csv("path")
+
+BUCKETING
+Bucketing will be perfom on high cordinality means all unique values for a column, based on hash value record will placed into bucketing
+df.write.bucketBy(10,"column_name").csv(Path)
+
 
 
 Dep_df.select("*").show()
