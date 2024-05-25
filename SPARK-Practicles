@@ -230,6 +230,7 @@ READ modes in spark
 1.Permissive - It sets all fields to Null, When it encounters a corrupted record, it's the default read mode and places the corrupted record in a string column called '_corrupt_record'
 2.dropMalformed - It will simply ignore the corrupted record
 3.failFast - Whenever the corrupted record is found, it will raise an exception and it won't display any output
+df = spark.read.option("header",True).option("mode","permissive").load('path')
 
 
 FILTER CONDITIONS
