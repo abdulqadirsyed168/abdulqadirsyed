@@ -220,6 +220,17 @@ Emp_df.withColumn("sum", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID",
 windowSpec = Window.partitionBy("DEPARTMENT_ID")
 Emp_df.withColumn("sum", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","sum").show(100)
 
+WRITE modes in spark
+1.Overwrite - First it will delete the existing directory and then it will create a new directory
+2.Append - Appends the output files to the directory if it already exists
+3.Ignore - If output directory exists, it won't do anything
+4.Error - Throws an error if the directory already exists
+
+READ modes in spark
+1.Permissive - It sets all fields to Null, When it encounters a corrupted record, it's the default read mode and places the corrupted record in a string column called '_corrupt_record'
+2.dropMalformed - It will simply ignore the corrupted record
+3.failFast - Whenever the corrupted record is found, it will raise an exception and it won't display any output
+
 
 FILTER CONDITIONS
 
