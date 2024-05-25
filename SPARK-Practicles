@@ -150,6 +150,9 @@ Emp_df.select("employee_id","first_name","salary").withColumn("New_salary",col("
 Emp_df.withColumn("New_salary",col("salary")+1000).select("employee_id","first_name","new_salary").show()
 Emp_df.withColumn("salary",col("salary") - 1000).select("employee_id","first_name","salary").show()
 Emp_df.withColumnRenamed("salary","emp_salary").show()
+from pyspark.sql.functions import spark_partition_id
+df.withColumn("partitionId", spark_partition_id())
+df.repartition(20).withColumn("partitionId", spark_partition_id())
 
 Emp_df.drop("commission_pct").show()
 Emp_df.filter(col("salary") < 5000).show()
