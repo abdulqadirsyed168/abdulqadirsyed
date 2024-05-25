@@ -74,6 +74,11 @@ df = sqlContext.createDataFrame
 TO CONVERT DATAFRAME TO SQL
 df.createOrReplaceTempView('table_name')
 
+Cache & Persistence
+import org.apache.spark.storage.
+df.persis(StorageLevel.MEMORY_ONLY)
+df.unpersist()
+
 READ DIFFERENT FILE FORMAT IN PYSPARK
 
 Books_df = spark.read.format("xml").option("rootTag", "books").option("rowTag", "book").load("dbfs:/FileStore/Tables/XmlFolder/Books.xml")-----XML FORMAT
