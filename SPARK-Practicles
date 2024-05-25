@@ -59,6 +59,9 @@ HOW MANY WAYS CAN WE CREATE RDD
 rdd = sc.parallelize(range(10))
 rrd1 = spark.sparkContext.parallelize(range(10))
 
+HOW MANY WAYS CAN WE ABLE TO CONVERT DF TO RDD
+r1 = df.rdd
+
 HOW MANY WAYS CAN WE ABLE TO CONVERT RDD TO DF
 
 df = rdd1.toDF(schema = [])
