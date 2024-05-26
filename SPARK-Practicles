@@ -286,6 +286,7 @@ display(deltaInstance2.history())
 
 Delta Lake: Restore Command
 table_name.restoreToVersion(version_num)
+table_name.restoreToTimestamp(timestamp)
 
 
 
