@@ -1,0 +1,11 @@
+Delta lake sit on top of Data lake kind of storage layer
+Data lake does not support the DML - insert,update,delete
+Delta lake support DML's it has metadata information so DML's can perform easily
+Delta lake has advantage of schema evolution means existing table contains three columns, but in streaming four columns that we are getting
+Delta lake accepts structure,semi,unstruct data
+Delta lake simplify lambda architecture for batch + streaming combination
+
+
+Delta lake Internal Working Mechanism
+For every DDL,DML operations we perform on delta table each command will get recorded in to Json Transaction Log File, It is help full for time travel
+For Every 10 Json transaction log file, it will create on checkpointing called as Parquet checkpointing log file, It is help full for unnessecarry scanings
