@@ -284,6 +284,9 @@ display(deltaInstance2.toDF())
 deltaInstance2.delete("emp_id = 200")
 display(deltaInstance2.history())
 
+Delta Lake: Restore Command
+table_name.restoreToVersion(version_num)
+
 
 
 
