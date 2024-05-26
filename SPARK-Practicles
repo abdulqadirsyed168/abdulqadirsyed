@@ -291,6 +291,10 @@ table_name.restoreToTimestamp(timestamp)
 Delta Lake: Optimize Command - File Compaction
 OPTIMIZE table_name
 
+Delta Lake: Vacuum Command
+VACCUM table_name DRY RUN
+VACCUM table_name RETAIN HOURS DRY RUN
+
 
 
 
