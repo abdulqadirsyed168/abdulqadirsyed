@@ -59,9 +59,12 @@ EX - FINANCIAL DEPT,
 
 3 STAR SCHEMA :
 * IN THIS STAR SCHEMA ONE OR MORE FACT TABLES WILL THERE AND THEY CAN BE CONNECT ANY NUMBER OF DIMENSION TABLES
+* Star schema will give faster ouput, but the data redundency would be there like duplicate records
 
 4 SNOW FLAKE SCHEMA :
 * IN THIS SNOW FLAKE SHEMA ONE THING WOULD BE DIMENSION TABLE WOULD BE IN NORMALIZED FORM MEANS IT CAN HAVE MULTIPLE SUBTABLES 
+* Snow flake schema will give slower ouput, but the data redundency would not be there.
+
 
 Q DIFFERENCE BETWEEN STAR SCHEMA AND SNOW FLAKE SCHEMA
 
