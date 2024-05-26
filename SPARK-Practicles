@@ -288,6 +288,9 @@ Delta Lake: Restore Command
 table_name.restoreToVersion(version_num)
 table_name.restoreToTimestamp(timestamp)
 
+Delta Lake: Optimize Command - File Compaction
+OPTIMIZE table_name
+
 
 
 
