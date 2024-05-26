@@ -270,6 +270,20 @@ CREATE OR REPLACE TABLE Table_name(col1 datatype,col2 datatype) USING DELTA LOCA
 Dataframe
 df.write.format("delta").saveAsTable("database_name.table_name")
 
+Delta Instance
+deltaInstance1 = DeltaTable.forPath(spark, "path")
+display(deltaInstance1.toDF())
+deltaInstance1.delete("emp_id = 200")
+display(deltaInstance1.history())
+
+deltaInstance2 = DeltaTable.forName(spark, "table_name")
+display(deltaInstance2.toDF())
+deltaInstance2.delete("emp_id = 200")
+display(deltaInstance2.history())
+
+
+
+
 
 
 
