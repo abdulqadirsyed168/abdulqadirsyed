@@ -137,6 +137,9 @@ BUCKETING
 Bucketing will be perfom on high cordinality means all unique values for a column, based on hash value record will placed into bucketing
 df.write.bucketBy(10,"column_name").csv(Path)
 
+PIVOT
+pivot_df = df.groupby("col_name").pivot("col_name").sum("col_name") - This command will convert rows to columns
+
 
 
 Dep_df.select("*").show()
