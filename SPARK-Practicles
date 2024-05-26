@@ -254,6 +254,23 @@ display(name_df.filter((name_df.columnname.like("%stringname%"))) )
 display(name_df.filter((name_df.columnname.like("%stringname"))) )
 display(name_df.filter((name_df.columnname.like("stringname%"))) )
 
+Multiple ways of creating DELTA TABLES by SPARK,SQL,DATAFRAME styles
+
+SPARK
+from delta.tables import *
+DeltaTable.create(spark).tableName("database.table_name").addColumn("").property("").location("").execute()
+DeltaTable.createIfNotExists(spark).tableName("database.table_name").addColumn("").property("").location("").execute()
+DeltaTable.createOrReplace(spark).tableName("database.table_name").addColumn("").property("").location("").execute() - It will delete old one and create new one
+
+SQL
+CREATE TABLE Table_name(col1 datatype,col2 datatype) USING DELTA
+CREATE TABLE IF NOT EXISTS Table_name(col1 datatype,col2 datatype) USING DELTA
+CREATE OR REPLACE TABLE Table_name(col1 datatype,col2 datatype) USING DELTA LOCATION "path"
+
+Dataframe
+df.write.format("delta").saveAsTable("database_name.table_name")
+
+
 
 
 
