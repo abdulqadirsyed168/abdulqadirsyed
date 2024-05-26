@@ -295,6 +295,10 @@ Delta Lake: Vacuum Command
 VACCUM table_name DRY RUN
 VACCUM table_name RETAIN HOURS DRY RUN
 
+Delta: Z-Order Command
+OPTIMIZE table_name
+ZORDER col_name
+
 
 
 
