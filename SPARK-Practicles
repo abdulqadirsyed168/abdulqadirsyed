@@ -299,6 +299,19 @@ Delta: Z-Order Command
 OPTIMIZE table_name
 ZORDER col_name
 
+Delta: Schema Evolution - MergeSchema
+df.write.option("mergeSchema", "true").format("delta").mode("append").saveAsTable("table_name")
+
+Data Security: Enforcing Column Level Encryption
+pip install cryptography
+from cryptography.fernet import Fernet
+key = Fernet.generate_key()
+f = Fernet(key)
+
+mail_id = "abd123@gmail.com"
+test = f.encrypt(mail_id)    - f.decrypt(mail_id)
+print(test)
+
 
 
 
