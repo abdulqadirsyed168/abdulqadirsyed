@@ -312,6 +312,25 @@ mail_id = "abd123@gmail.com"
 test = f.encrypt(mail_id)    - f.decrypt(mail_id)
 print(test)
 
+PYSPARK FUNCTION = SPLIT
+pyspark.sql.functions.split
+DF.withColumn('Frist_name',split(DF['Original_col_name'],'').getiteam(0)).withColumn('Lat_name',split(DF['Original_col_name'],'').getiteam(1))
+
+Pyspark Functions| Arrays_zip
+from pyspark.sql import functions as F
+outputdf = inputdf.withColumn("col_name",F.arrays_zip("col1","col2"))
+df = df.withColumn('Explode',F.explode(col_name))
+df = df.withColumn('emp_name',df_brand_exp['Explode.employee.emp_name']).drop("explode")
+
+Null Count of Each Column in Dataframe
+from pyspark.sql.functions import col,count,when
+df1 = df.select([count(when(col(c).isNull(), c)).alias(c) for c in df.columns])
+
+Delta Lake Audit Log Table with Operation Metrics
+df.select.withColumn('col_name',lit(dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()))
+         .withColumn('col_name',lit(dbutils.notebook.entry_point.getDbutils().notebook().getContect().notebookPath().get()))
+         .withColumn('col_name',lit(current_timestamp))
+
 
 
 
