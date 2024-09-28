@@ -21,4 +21,12 @@ DENSE RANK
 SELECT COLUMN1,COLUMN2,COLUMN3, DENSE_RANK() OVER(PARTITION BY COLUMN_NAME ORDER BY COLUMN_NAME) AS DENSE_RANK FROM TABLE_NAME
 SELECT * FROM (SELECT COLUMN1,COLUMN2,COLUMN3, DENSE_RANK() OVER(PARTITION BY COLUMN_NAME ORDER BY COLUMN_NAME) AS DENSE_RANK FROM TABLE_NAME) AS TEST WHERE DENSE_RANK = 1;
 
+select student_id,student_batch,student_name,student_stream,students_marks,students_mail_id,
+row_number() over(partition by student_batch order by students_marks desc) as 'row_number',
+rank() over(partition by student_batch order by students_marks desc) as 'rank',
+dense_rank() over(partition by student_batch order by students_marks desc) as 'dense_rank', 
+LAG(students_marks,1) over(partition by student_batch order by students_marks desc) as 'lag',
+LEAD(students_marks,1) over(partition by student_batch order by students_marks desc) as 'lead' from ineuron_students
+
+
 
