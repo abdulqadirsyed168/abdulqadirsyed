@@ -331,6 +331,55 @@ df.select.withColumn('col_name',lit(dbutils.notebook.entry_point.getDbutils().no
          .withColumn('col_name',lit(dbutils.notebook.entry_point.getDbutils().notebook().getContect().notebookPath().get()))
          .withColumn('col_name',lit(current_timestamp))
 
+PYSPARK PIVOT
+from pyspark.sql import SparkSession
+from pyspark.sql import Row
+
+# Initialize Spark Session
+spark = SparkSession.builder \
+    .appName("Pivot Example") \
+    .getOrCreate()
+
+# Sample data
+data = [
+    Row(date="2023-09-01", region="North", product="Product_A", sales=100),
+    Row(date="2023-09-01", region="North", product="Product_B", sales=200),
+    Row(date="2023-09-01", region="South", product="Product_A", sales=150),
+    Row(date="2023-09-02", region="North", product="Product_A", sales=300),
+    Row(date="2023-09-02", region="South", product="Product_B", sales=400),
+    Row(date="2023-09-02", region="North", product="Product_B", sales=250)
+]
+
+# Create DataFrame
+df = spark.createDataFrame(data)
+
+# Show the DataFrame
+df.show()
++----------+------+---------+-----+
+|      date|region|  product|sales|
++----------+------+---------+-----+
+|2023-09-01| North|Product_A|  100|
+|2023-09-01| North|Product_B|  200|
+|2023-09-01| South|Product_A|  150|
+|2023-09-02| North|Product_A|  300|
+|2023-09-02| South|Product_B|  400|
+|2023-09-02| North|Product_B|  250|
++----------+------+---------+-----+
+# Pivot the DataFrame
+pivot_df = df.groupBy("date", "region").pivot("product").sum("sales")
+
+# Show the pivoted DataFrame
+pivot_df.show()
++----------+------+---------+---------+
+|      date|region|Product_A|Product_B|
++----------+------+---------+---------+
+|2023-09-02| North|      300|      250|
+|2023-09-01| South|      150|     null|
+|2023-09-01| North|      100|      200|
+|2023-09-02| South|     null|      400|
++----------+------+---------+---------+
+
+
 
 
 
