@@ -28,5 +28,16 @@ dense_rank() over(partition by student_batch order by students_marks desc) as 'd
 LAG(students_marks,1) over(partition by student_batch order by students_marks desc) as 'lag',
 LEAD(students_marks,1) over(partition by student_batch order by students_marks desc) as 'lead' from ineuron_students
 
+How do you handle duplicate records in a table and delete records in SQL? 
+WITH CTE AS (
+    SELECT column1, column2, ROW_NUMBER() OVER (PARTITION BY column1, column2 ORDER BY id_column) AS row_num
+    FROM table_name
+)
+DELETE FROM table_name
+WHERE id_column IN (
+    SELECT id_column FROM CTE WHERE row_num > 1
+);
+
+
 
 
