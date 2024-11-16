@@ -27,6 +27,7 @@ rank() over(partition by student_batch order by students_marks desc) as 'rank',
 dense_rank() over(partition by student_batch order by students_marks desc) as 'dense_rank', 
 LAG(students_marks,1) over(partition by student_batch order by students_marks desc) as 'lag',
 LEAD(students_marks,1) over(partition by student_batch order by students_marks desc) as 'lead' from ineuron_students
+https://drive.google.com/file/d/1kDweJERaZh5LRIwcn33hKXtZVgPX9CFH/view?usp=drive_link
 
 
 How do you handle duplicate records in a table and delete records in SQL? 
