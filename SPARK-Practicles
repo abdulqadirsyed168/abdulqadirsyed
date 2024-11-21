@@ -74,6 +74,9 @@ df = sqlContext.createDataFrame
 TO CONVERT DATAFRAME TO SQL
 df.createOrReplaceTempView('table_name')
 
+CONVERT SQL TABLE TO DATAFRAME
+df = spark.sql("select * from table_name")
+
 Cache & Persistence
 import org.apache.spark.storage.
 df.persis(StorageLevel.MEMORY_ONLY)
