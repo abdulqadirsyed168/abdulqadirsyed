@@ -92,3 +92,13 @@ and copy paste it to cluster configuration in spark config
 2.choose your databricks workspace
 3.CLUSTER ID = Launch Databricks workspace,go to compute,click cluster, goto JDBC/ODBC, goto HTTPS path copy end part
 
+AZURE KEY VAULTS
+Databricks wrokspace_id/createScope
+It will ask for scope name 
+DNS name
+ResourceID THIS details can be retrive from azure key vaults
+navigate to azure key valuts go to properties and Vault URI is nothing but a DNS name and resource_id
+display(dbutils.secrets,listScopes())
+dbutils.secrets.get(scope = "", key = "")
+
+
