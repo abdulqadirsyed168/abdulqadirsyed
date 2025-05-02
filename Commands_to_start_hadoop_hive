@@ -1,0 +1,86 @@
+ RUN ALL ADMINISTRATOR MODE 
+ HADOOP
+1.hdfs namenode -format
+2.cd hadoop-3.2.4
+3.cd sbin
+4.start-dfs
+5.start-yarn
+6.jps
+7.localhost:9870
+8.localhost:8088
+8.stop-dfs
+9.stop-yarn
+
+ movies_df = spark.read.format("csv").option("header", False).option("delimiter", "::").option("inferSchema",True).load("hdfs://localhost:9000/tmp/movies.dat")
+
+ TO START HADOOP
+1.cd C:\hadoop-3.2.4\sbin
+2.start-dfs
+3.start-yarn
+hdfs://localhost:9000
+
+ TO START DERBY
+1.cd C:\db-derby-10.12.1.1-bin\bin
+2.startNetworkServer -h 0.0.0.0
+
+ TO START HIVE
+1.cd C:\apache-hive-2.1.0-bin\bin
+
+HIVE INSTALLATION GUIDE-https://towardsdatascience.com/installing-apache-hive-3-1-2-on-windows-10-70669ce79c79
+HIVE-SITE.XML
+https://drive.google.com/file/d/1qqAo7RQfr5Q6O-GTom6Rji3TdufP81zd/view
+
+ HIVE
+1.derby/bin-startNetworkServer -h 0.0.0.0
+2.hive/bin-hive
+3.exit;
+
+spark path
+C:\spark-3.3.2-bin-hadoop2\conf
+
+hadoop path
+C:\hadoop-3.2.4\etc\hadoop\core-site.xml
+C:\hadoop-3.2.4\etc\hadoop\hdfs-site.xml
+
+hive path
+C:\apache-hive-3.1.2-bin\conf\hive-site.xml
+
+hive -e "set hive.log.dir"
+
+
+
+export HADOOP_HOME='C:\cygdrive\c\hadoop-3.2.4'
+export PATH=$PATH:$HADOOP_HOME\bin
+export HIVE_HOME='C:\cygdrive\c\apache-hive-3.1.2-bin'
+export PATH=$PATH:$HIVE_HOME\bin
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HIVE_HOME\lib\*.jar
+
+$HIVE_HOME\bin\schematool -dbType derby -initSchema
+
+
+
+export HADOOP_HOME='C:/cygdrive/c/hadoop-3.2.4'
+export PATH=$PATH:$HADOOP_HOME/bin
+export HIVE_HOME='C:/cygdrive/c/apache-hive-3.1.2-bin'
+export PATH=$PATH:$HIVE_HOME/bin
+export JAVA_HOME='C:/cygdrive/c/Java/jdk1.8.0_351'
+export PATH=$PATH:$JAVA_HOME/bin
+export SPARK_HOME='C:/cygdrive/c/spark-3.3.2-bin-hadoop2'
+export PATH=$PATH:$SPARK_HOME/bin
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HIVE_HOME/lib/*.jar
+
+$HIVE_HOME/bin/schematool -dbType derby -initSchema
+
+
+export JAVA_HOME=C:\Java\jdk1.8.0_351
+export HADOOP_HOME=C:\hadoop-3.2.4
+export HIVE_HOME=C:\apache-hive-3.1.2-bin
+export SPARK_HOME=C:\spark-3.3.2-bin-hadoop2
+export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HIVE_HOME/bin:$SPARK_HOME/bin:$PATH
+
+1.cd /mnt/c/ change to C DRIVE
+2.ls -l
+
+https://ubuntu.com/server/docs/databases-mysql
+
+/usr/lib/jvm/java-8-openjdk-amd64
