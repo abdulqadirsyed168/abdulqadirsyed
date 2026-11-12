@@ -1,6 +1,9 @@
 
 Azure Key Vaults - Centralized Vault service locker kind of service, any kind of sensitive information to store we can use keyvaults SSH,Passwords
 
+UNITY CATALOG
+"Unity Catalog is Databricks' centralized data governance solution. It helps manage data access, permissions, metadata, data lineage, and auditing across multiple workspaces. It organizes data using a three-level namespace: Catalog, Schema, and Table."
+
 Authentication Method
 1.System Assigned Managed Identity(SAMI): It's default created and attaching to ADB to ADF, No scope of delete in future. owent get deleted it does not have expire date.
 2.User Assigned Managed Identity(UAMI): There can be scope to be delete by some one in future. all pipelines will stop our linked services will fail.
