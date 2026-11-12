@@ -1,3 +1,6 @@
+
+Azure Key Vaults - Centralized Vault service locker kind of service, any kind of sensitive information to store we can use keyvaults SSH,Passwords
+
 Authentication Method
 1.System Assigned Managed Identity(SAMI): It's default created and attaching to ADB to ADF, No scope of delete in future. owent get deleted it does not have expire date.
 2.User Assigned Managed Identity(UAMI): There can be scope to be delete by some one in future. all pipelines will stop our linked services will fail.
