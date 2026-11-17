@@ -309,6 +309,32 @@ Delta: Z-Order Command
 OPTIMIZE table_name
 ZORDER col_name
 
+Liquid Clustering : We can add cluster by columns up to 4, Liquid clustering is generally available for Delta Lake tables with Databricks Runtime 15.4 LTS and above
+1.We have loaded 1gb csv file that default partition will be 6, it will divide data into 128MB block size.
+2.If we do partitionBy for that table by COUNTRY column it will create partitions and it will create 6 files for each partition.
+3.Let Say we have 26 Countries, 26 partitions files, each partition file will get divided into 6 parquet files, TOTAL 26X6 = 156 smaller parquet files will get created.
+
+1.Select * from transactions where country = 'US'
+Enable clustering on an existing table:
+2.ALTER TABLE transactions
+CLUSTER BY (Country, Transaction_Date);
+3.OPTIMIZE transactions;
+Check clustering information:
+4.DESCRIBE DETAIL transactions;
+Disable Liquid Clustering:
+5.ALTER TABLE transactions CLUSTER BY NONE;
+
+Create table with liquid clustering
+1.CREATE TABLE transactions (
+    Account_ID BIGINT,
+    Country STRING,
+    Transaction_Date DATE,
+    Amount DOUBLE
+)
+USING DELTA
+CLUSTER BY (Country, Transaction_Date);
+2.OPTIMIZE transactions;
+
 Delta: Schema Evolution - MergeSchema
 df.write.option("mergeSchema", "true").format("delta").mode("append").saveAsTable("table_name")
 
