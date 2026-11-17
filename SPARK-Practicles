@@ -304,6 +304,8 @@ OPTIMIZE table_name
 Delta Lake: Vacuum Command
 VACCUM table_name DRY RUN
 VACCUM table_name RETAIN HOURS DRY RUN
+Bydefault retentition period will be 7 days we can configure it using below properties to True
+spark.databricks.delta.retentionDurationCheck.enable = false
 
 Delta: Z-Order Command
 OPTIMIZE table_name
