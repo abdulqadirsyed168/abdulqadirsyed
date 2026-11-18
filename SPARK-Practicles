@@ -298,7 +298,7 @@ Delta Lake: Restore Command
 table_name.restoreToVersion(version_num)
 table_name.restoreToTimestamp(timestamp)
 
-Delta Lake: Optimize Command - File Compaction
+Delta Lake: Optimize Command - File Compaction, combine smaller files in to one file, performance will get improved
 OPTIMIZE table_name
 
 Delta Lake: Vacuum Command
